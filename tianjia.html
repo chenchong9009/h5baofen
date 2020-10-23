@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>添加</title>
+
+  <link href="css/content.css" rel="stylesheet">
+  <script src="js/m_jx.js"></script>
+  <script src="js/jquery.min.js"></script>
+</head>
+
+<body style=" background:#f7f7f7">
+
+  <div class="gg_linkxq" class="font_Light">
+    <div class="flex flex-align-center padding20">
+      <div class="flex flex-1 flex-align-center index_top_right1">
+        <h5 class="h5_img2">
+          <image src="images/sousuo.png" class="w100" />
+        </h5>
+        <input type="text" class="font30 input1 color_66" name="" id="" placeholder="查找文章或视频">
+      </div>
+      <div class="sqtj">申请添加</div>
+    </div>
+    <div class="tj_cont1 ding1">
+      <h5 class="font40 color_33 marginB20">已订阅</h5>
+      <div class="tj_cont1_ul tj_cont1_ul_jian flex flex-wrap ">
+        <div class="list01 jian flex flex-align-center" onclick="dianjijian(this);">
+          <p class="font30 color_66 info1">全屋定制好1</p>
+          <h5 class="h5_img_jia">
+            <image src="images/jianhao.png" class="w100" />
+          </h5>
+        </div>
+        <div class="list01 jian flex flex-align-center" onclick="dianjijian(this);">
+          <p class="font30 color_66 info1">一推荐2</p>
+          <h5 class="h5_img_jia">
+            <image src="images/jianhao.png" class="w100" />
+          </h5>
+        </div>
+        <div class="list01 jian flex flex-align-center" onclick="dianjijian(this);">
+          <p class="font30 color_66 info1">一推荐3</p>
+          <h5 class="h5_img_jia">
+            <image src="images/jianhao.png" class="w100" />
+          </h5>
+        </div>
+        <div class="list01 jian flex flex-align-center" onclick="dianjijian(this);">
+          <p class="font30 color_66 info1">一推荐4</p>
+          <h5 class="h5_img_jia">
+            <image src="images/jianhao.png" class="w100" />
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="tj_cont1 ding2">
+      <h5 class="font40 color_33 marginB20">热门订阅</h5>
+      <div class="tj_cont1_ul tj_cont1_ul_jia flex flex-wrap ">
+        <div class="list01 jia flex flex-align-center" onclick="dianjijia(this);">
+          <p class="font30 color_66 info1">全屋定制好5</p>
+          <h5 class="h5_img_jia">
+            <image src="images/jiahao.png" class="w100" />
+          </h5>
+        </div>
+        <div class="list01 jia flex flex-align-center"  onclick="dianjijia(this);">
+          <p class="font30 color_66 info1">一推荐6</p>
+          <h5 class="h5_img_jia">
+            <image src="images/jiahao.png" class="w100" />
+          </h5>
+        </div>
+        <div class="list01 jia flex flex-align-center" onclick="dianjijia(this);">
+          <p class="font30 color_66 info1">一推荐7</p>
+          <h5 class="h5_img_jia">
+            <image src="images/jiahao.png" class="w100" />
+          </h5>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="submit2">
+      <p>保存</p>
+
+    </div>
+
+  </div>
+
+
+</body>
+
+<script>
+ 
+   
+
+
+
+    function dianjijia(jupm){
+
+      var info1 = $(jupm).find(".info1").text()
+      console.log($(jupm))
+      $(jupm).remove()
+      var str = ""
+      str += `
+      
+      <div class="list01 jian flex flex-align-center" onclick="dianjijian(this)">
+                      <p class="font30 color_66 info1">` + info1 + `
+                        </p>
+                      <h5 class="h5_img_jia">
+                        <image src="images/jianhao.png" class="w100" />
+                      </h5>
+                  </div>
+        `
+      $(".tj_cont1_ul_jian").append(str)
+      
+
+    }
+
+    function dianjijian(jupm1){
+      var info2 = $(jupm1).find(".info1").text()
+      console.log($(jupm1))
+      $(jupm1).remove()
+      var str1 = ""
+      str1 += `
+      
+      <div class="list01 jia flex flex-align-center" onclick="dianjijia(this)">
+                  <p class="font30 color_66 info1">` + info2 + `</p>
+                  <h5 class="h5_img_jia">
+                    <image src="images/jiahao.png" class="w100" />
+                </h5>
+              </div>
+        `
+      $(".tj_cont1_ul_jia").append(str1)
+    }
+  
+</script>
+
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>查看奖励</title>
+    <link href="css/content.css" rel="stylesheet">
+
+    <script src="js/m_jx.js"></script>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body style=" background:#f7f7f7">
+    <div class="font_Light">
+        <div class="flex flex-pack-center jl_cont1">
+            <div class="flex flex-v flex-align-center flex-pack-center flex-1 cont1_left">
+                <p class="font30 color_33 p1">可提现(元)</p>
+                <h4 class="font34 color_33">0</h4>
+                <div class="tx_btn1 font32">申请提现</div>
+            </div>
+            <div class="flex flex-v flex-align-center flex-pack-center flex-1 cont1_right">
+                <p class="font30 color_33 p1">提现中(元)</p>
+                <h4 class="font34 color_33">0</h4>
+                <div class="tx_btn2 font32">提现记录</div>
+            </div>
+        </div>
+        <div class="jl_cont_list flex flex-v">
+            <h5 class="h5 font34 color_h">今日数据</h5>
+            <a href="#" class="flex flex-align-center jl_cont_list_1 ">
+                <p class="flex flex-1 font30 color_33">邀请人数</p>
+                <div class="flex flex-align-center">
+                    <p class="font28 color_h">0人</p>
+                    <h5 class="h5_right_btn">
+                        <image src="images/right_btn.png" class="w100" />
+                    </h5>
+                </div>
+            </a>
+            <a href="#" class="flex flex-align-center jl_cont_list_2">
+                <p class="flex flex-1 font30 color_33">开通会员</p>
+                <div class="flex flex-align-center">
+                    <p class="font28 color_h">0人</p>
+                    <h5 class="h5_right_btn">
+                        <image src="images/right_btn.png" class="w100" />
+                    </h5>
+                </div>
+            </a>
+        </div>
+        <div class="jl_cont_list flex flex-v">
+            <h5 class="h5 font34 color_h">累计数据</h5>
+            <a href="#" class="flex flex-align-center jl_cont_list_1 ">
+                <p class="flex flex-1 font30 color_33">邀请人数</p>
+                <div class="flex flex-align-center">
+                    <p class="font28 color_h">0人</p>
+                    <h5 class="h5_right_btn">
+                        <image src="images/right_btn.png" class="w100" />
+                    </h5>
+                </div>
+            </a>
+            <a href="#" class="flex flex-align-center jl_cont_list_2">
+                <p class="flex flex-1 font30 color_33">开通会员</p>
+                <div class="flex flex-align-center">
+                    <p class="font28 color_h">0人</p>
+                    <h5 class="h5_right_btn">
+                        <image src="images/right_btn.png" class="w100" />
+                    </h5>
+                </div>
+            </a>
+        </div>
+        <div class="jl_cont_list flex flex-v">
+            <h5 class="h5 font34 color_h">奖励金说明：</h5>
+             <div class="jl_info">
+                 <p>1.邀请好友开通会员，可获最高100元奖励，奖励规则：</p>
+                 <p>奖励金 = 基础奖励 + 限时额外奖励</p>
+                 <p>2.奖励金满100元可提现，提现仅限会员。</p>
+             </div>
+        </div>
+        <div class="jl_cont_list flex flex-v">
+            <h5 class="h5 font34 color_h">邀请方法：</h5>
+             <div class="jl_info">
+                <p>方法一：分享邀请图片，清好友扫码关注并开通会员。</p>
+                 <h5 class="color_lan font30">查看邀请图片！</h5>
+                 <p>方法二：①分享早/晚安给好友，②请好友点击早/晚安底部“我也要制作”按钮，③扫码关注并开通会员。</p>
+                 <p>方法三：①分享文章给好友，②请好友点击文章底部“免费换成我的名片”按钮，③扫码关注并开通会员。</p>
+                 <p>方法四：①分享视频给好友，②请好友点击视频顶部“换成我的”按钮，或者底部“换成我的广告”按钮，③扫码关注并开通会员。</p>
+             </div>
+        </div>
+        <div class="jl_bot">
+            <p>特别提示：本平台对本奖励活动拥有最终解释权，并有权随时调整。</p>
+        </div>
+
+    </div>
+
+
+</body>
+<script>
+    // -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.5);
+    $(window).on('scroll', function () {
+        $(".index_top").css({
+            'box-shadow': '0 3px 14px rgba(0,0,0,.3)'
+        })
+        if ($(this).scrollTop() == 0) {
+            $(".index_top").css({
+                'box-shadow': 'none'
+            })
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,2873 @@
+<!DOCTYPE html>
+<html class="pixel-ratio-1" style="overflow: auto;">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>WECHAT_EMPTY_TITLE</title>
+  <link href="css/summernote.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/weui.min.css">
+  <link rel="stylesheet" href="css/jquery-weui.min.css">
+  <style type="text/css">
+    ::-webkit-scrollbar {
+      /*隐藏滚轮*/
+      display: none;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    body {
+      background: #fff;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 19px;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      font-size: 14px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    a:active {
+      text-decoration: none;
+    }
+
+    article,
+    section {
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      /* css-3 */
+      white-space: -moz-pre-wrap;
+      /* Mozilla, since 1999 */
+      white-space: -pre-wrap;
+      /* Opera 4-6 */
+      white-space: -o-pre-wrap;
+      /* Opera 7 */
+      word-wrap: break-word;
+      /* Internet Explorer 5.5+ */
+    }
+
+    .container,
+    textarea,
+    input {
+      color: #333;
+      font-family: 'PingFangSC-Regular', '微软雅黑', 'Microsoft Yahei',
+        'Avenir', Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      padding-bottom: 25px;
+      background: #f6f6f6;
+    }
+
+    .clear:after,
+    .product-info:after,
+    .consult-column:after {
+      clear: both;
+      content: '.';
+      display: block;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
+    .fixed_center {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    img {
+      max-width: 100% !important;
+      height: auto !important;
+      margin: 0 auto;
+    }
+
+    /*编辑文章提示*/
+    .edit_notice_wrap {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    .edit_notice_wrap .edit_notice_title {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 12.8%;
+      line-height: 50px;
+    }
+
+    .edit_notice_wrap .edit_notice_y {
+      color: #fdc50a;
+    }
+
+    .edit_notice_wrap .edit_notice_img {
+      width: 240px;
+      margin-top: 5%;
+    }
+
+    .edit_notice_wrap .notice_btn {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      height: 50px;
+      margin-top: 5.5%;
+    }
+
+    .notice_btn .notice_btn_item {
+      width: 140px;
+      height: 50px;
+      border-radius: 4px;
+      line-height: 50px;
+      text-align: center;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .notice_btn .no_notice {
+      border: 1px solid rgba(255, 255, 255, 1);
+    }
+
+    .notice_btn .notice_known {
+      background: #e02e42;
+      margin-left: 15px;
+    }
+
+    /*文章标题, 背景图*/
+    .article_title_wrap {
+      width: 100%;
+      padding: 15px;
+      background: #fff;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .article_title_wrap .article_title {
+      font-weight: bold;
+      line-height: 24px;
+      margin-bottom: 18px;
+    }
+
+    .article_title_wrap .article_title_other {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .article_title_wrap .article_title_des {
+      font-size: 14px;
+      color: #999999;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      line-height: 22px;
+      margin-right: 10px;
+      word-break: break-all;
+    }
+
+    .article_title_wrap .article_cover_img {
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+
+    .article_cover_img .inner_cover_img {
+      width: 100%;
+      height: 100% !important;
+    }
+
+    .article_cover_img .opacity_cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .opacity_cover .opacity_cover_img {
+      width: 24px;
+      margin-bottom: 5px;
+    }
+
+    /*文章摘要*/
+    .article_des_wrap .article_des_title {
+      font-size: 14px;
+      padding-left: 15px;
+      line-height: 45px;
+    }
+
+    .article_des_wrap .article_des_con {
+      padding: 10px 15px;
+      background: #fff;
+    }
+
+    .article_des_con .no_des {
+      font-size: 17px;
+      line-height: 50px;
+      color: #b6b6b6;
+    }
+
+    /*文章内容*/
+    .art-content {
+      padding: 0 15px 70px;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .art-content .art-section {
+      margin-bottom: 30px;
+      padding: 0 15px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      line-height: 34px;
+    }
+
+    .art-content .padding_none {
+      padding-bottom: 0;
+    }
+
+    .art-content .art-section:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+
+    /* .art-content .art-section p {
+      padding-bottom: 5px;
+    } */
+
+    /*产品*/
+    .art-content .product-section {
+      background: #ffffff;
+      padding: 15px !important;
+    }
+
+    .product-section .product-info img {
+      width: 72px;
+      height: 72px;
+      float: left;
+    }
+
+    .product-section .product-info h3 {
+      white-space: nowrap;
+      font-size: 17px;
+      font-weight: bold;
+      margin-left: 87px;
+      text-align: left;
+      overflow: hidden;
+      line-height: 24px;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+    }
+
+    .product-section .product-info .cont {
+      font-size: 14px;
+      line-height: 21px;
+      text-align: left;
+      color: #999999;
+      margin: 6px 0 0 87px;
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .product-section .consult-column {
+      /* padding-bottom: 15px; */
+      margin-top: 25px;
+    }
+
+    .product-section .consult-column img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 14px;
+      float: left;
+    }
+
+    .product-section .consult-column i {
+      line-height: 32px;
+      font-style: normal;
+      margin-left: 10px;
+      float: left;
+    }
+
+    .product-section .consult-column span {
+      padding: 6px 12px;
+      background: #e02e42;
+      border-radius: 2px;
+      color: #fff;
+      text-align: center;
+      line-height: 20px;
+      float: right;
+    }
+
+    .product-section .hr,
+    .product-section .scale-half {
+      border: none;
+    }
+
+    /*编辑*/
+    .edit_top {
+      position: relative;
+      height: 60px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .edit_top .edit_add_wrap {
+      width: 30px;
+      height: 30px;
+    }
+
+    .edit_top .edit_add_con_wrap {
+      position: absolute;
+      top: 56px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      z-index: 9;
+    }
+
+    .edit_top .edit_add_con_wrap::before {
+      content: '';
+      width: 0px;
+      height: 0px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #fff;
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+
+    .edit_top .edit_add_con {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 12px 14px;
+      border-radius: 5px;
+      background: #fff;
+      line-height: 22px;
+    }
+
+    .edit_add_con .edit_btn_item_t {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      width: 62px;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      font-size: 16px;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    .art_section_edit .edit_btn_item_t {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .edit_add_con .edit_btn_item_t:nth-last-child(1) {
+      margin-right: 0;
+    }
+
+    .edit_btn_item_t .edit_btn_txt_icon_t {
+      width: 36px;
+      height: 36px;
+      background-image: url(images/edit_txt.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .edit_btn_item_t .edit_btn_img_icon_t {
+      width: 36px;
+      height: 36px;
+      background-image: url(images/edit_img.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .edit_btn_item_t .edit_btn_video_icon_t {
+      width: 36px;
+      height: 36px;
+      background-image: url(images/play-video.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .edit_btn_item_t .edit_btn_pro_icon_t {
+      width: 36px;
+      height: 36px;
+      background-image: url(images/edit_pro.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .edit_btn_item_t .edit_btn_txt_t {
+      margin-top: 5px;
+      font-weight: normal;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .art_section_edit .edit_btn_item {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .edit_btn_item .edit_btn_delete_icon {
+      width: 17px;
+      height: 17px;
+      background-image: url(images/c_delete_icon.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 4px 3px 0 0;
+    }
+
+    .edit_btn_item .edit_btn_edit_icon {
+      width: 17px;
+      height: 17px;
+      background-image: url(images/c_edit_icon.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 4px 3px 0 0;
+    }
+
+    .edit_btn_item .edit_btn_txt_icon,
+    .edit_btn_item .edit_btn_img_icon,
+    .edit_btn_item .edit_btn_pro_icon,
+    .edit_btn_item .edit_btn_house_icon,
+    .edit_btn_item .edit_btn_video_icon {
+      width: 17px;
+      height: 17px;
+      background-image: url(images/app12_add_icon.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 4px 3px 0 0;
+    }
+
+    .edit_btn_item .edit_btn_txt {
+      margin-top: 5px;
+      font-weight: normal;
+      color: #333;
+      font-size: 16px;
+      font-style: normal;
+    }
+
+    /*编辑文本弹出层*/
+    textarea {
+      display: block;
+      width: 92%;
+      outline: none;
+      resize: none;
+      border: none;
+      font-size: 17px;
+      margin: 15px auto;
+      padding: 8px 15px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    #edit_text .edit_text_btn {
+      width: 92%;
+      margin: 20px auto;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+    }
+
+    .edit_text_btn .edit_text_cancel,
+    .edit_text_btn .edit_text_confirm {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      height: 50px;
+      text-align: center;
+      border-radius: 4px;
+      font-size: 16px;
+      line-height: 50px;
+    }
+
+    .edit_text_btn .edit_text_cancel {
+      background: #e2e2e2;
+    }
+
+    .edit_text_btn .edit_text_confirm {
+      background: #e02e42;
+      margin-left: 20px;
+      color: #fff;
+    }
+
+    .art-content .cur_edit_con {
+      display: block;
+      width: 100%;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      margin-bottom: 0 !important;
+      background: #ffeeef !important;
+      border: 1px dashed #e02e42 !important;
+      padding: 10px 15px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      box-shadow: 0px 2px 5px #999;
+      float: none !important;
+    }
+
+    /*编辑按钮框*/
+    .art_section_edit {
+      position: absolute;
+      left: 15px;
+      right: 15px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      background: #fff;
+      margin-bottom: 20px;
+      box-shadow: 0px 2px 5px #999;
+      z-index: 9;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .art_section_selc {
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      height: 52px;
+      width: 100%;
+    }
+
+    .art_section_used {
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      height: 52px;
+      border-top: 1px solid #f1f1f1;
+      width: 100%;
+    }
+
+    .art_section_shadow {
+      position: relative;
+    }
+
+    .art_section_shadow:after {
+      display: flex;
+      border-right: 1px solid rgba(0, 0, 0, 0.08);
+      content: '';
+      height: 32px;
+      position: absolute;
+      right: 0;
+    }
+
+    .footer,
+    .footer_bar {
+      height: 54px;
+    }
+
+    .footer {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 9;
+    }
+
+    .footer {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .footer .footer_l,
+    .footer .footer_r {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      text-align: center;
+      line-height: 54px;
+      font-size: 16px;
+    }
+
+    .footer .footer_l {
+      background: #eee;
+    }
+
+    .footer .footer_r {
+      background: #e02e42;
+      color: #fff;
+    }
+
+    /*隐藏audio， video下载按钮*/
+    video::-webkit-media-controls-enclosure {
+      overflow: hidden;
+    }
+
+    video::-webkit-media-controls-panel {
+      width: calc(100% + 30px);
+    }
+
+    audio::-internal-media-controls-download-button {
+      display: none;
+    }
+
+    audio::-webkit-media-controls-enclosure {
+      overflow: hidden;
+    }
+
+    audio::-webkit-media-controls-panel {
+      width: calc(100% + 30px);
+    }
+
+    video,
+    audio,
+    iframe {
+      width: 100% !important;
+    }
+
+    /*weui默认主题颜色*/
+    .weui-dialog .weui-dialog__bd {
+      color: #333;
+    }
+
+    .weui-dialog .weui-dialog__btn {
+      color: #e02e42;
+    }
+
+    .weui-dialog .continue_edit {
+      color: #333;
+    }
+
+    .weui-dialog .free_edit_num {
+      color: #db273d;
+    }
+
+    .edit_article {
+      position: fixed;
+      bottom: 50px;
+      right: 15px;
+      width: 90px;
+      height: 86px;
+      z-index: 1;
+    }
+
+    .art-section strong,
+    .art-section b {
+      color: #e02e42;
+    }
+
+    .note-popover .popover-content,
+    .panel-heading.note-toolbar {
+      display: none !important;
+    }
+
+    /*选择产品*/
+    .pro_content {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      max-height: 485px;
+      background: #fff;
+      border-radius: 16px 16px 0 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .pro_content .pro_slide_bar {
+      width: 100%;
+      height: 58px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .pro_slide_bar .pro_slide_ul {
+      white-space: nowrap;
+      padding: 0 13px;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .pro_slide_ul .pro_slide_li {
+      display: inline-block;
+      line-height: 55px;
+      font-size: 16px;
+      margin: 0 7px;
+    }
+
+    .pro_slide_li .pro_item_line {
+      width: 15px;
+      height: 3px;
+      background: #fff;
+      margin: 0 auto;
+    }
+
+    .pro_slide_ul .pro_slide_active {
+      color: #e02e42;
+    }
+
+    .pro_slide_active .pro_item_line {
+      background: #e02e42;
+    }
+
+    .pro_slide_bar .close_con {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      width: 58px;
+      height: 58px;
+    }
+
+    .close_con img {
+      width: 18px;
+      height: 18px;
+    }
+
+    .pro_content .pro_wrapper {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .pro_content .pro_list_con {
+      margin: 0 15px 10px;
+      background: #f7f7f7;
+      padding: 15px;
+    }
+
+    .pro_list_con img {
+      width: 72px;
+      height: 72px;
+      float: left;
+    }
+
+    .pro_list_con .pro_list_info {
+      margin-left: 87px;
+    }
+
+    .pro_list_con .pro_list_title {
+      font-size: 17px;
+      line-height: 24px;
+      font-weight: bold;
+    }
+
+    .pro_list_con .pro_list_des {
+      font-size: 15px;
+      color: #999999;
+      line-height: 21px;
+      margin-top: 6px;
+    }
+
+    .weui-loadmore {
+      display: none;
+    }
+
+    .no_more {
+      line-height: 30px;
+      font-size: 13px;
+      color: #999;
+      text-align: center;
+      display: none;
+    }
+
+    .edit_btn_item:active {
+      background: #f3f3f3;
+    }
+
+    .footer_l:active {
+      background: #ccc;
+    }
+
+    .notice_known:active,
+    #save_article:active {
+      background: #be2738;
+    }
+
+    @media screen and (max-width: 374px) {
+      .edit_notice_wrap .edit_notice_img {
+        width: 200px;
+      }
+    }
+
+    /*135编辑器*/
+    ._135editor {
+      padding: 0 15px;
+    }
+
+    .art-section-new {
+      margin: 15px 0;
+      padding: 0 15px;
+    }
+
+    .content {
+      padding: none;
+    }
+
+    /*反馈图片底部弹框*/
+    .feed_container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-height: 85%;
+      background: #fff;
+      border-radius: 16px 16px 0 0;
+      color: #333;
+    }
+
+    .feed_container .feed_title {
+      height: 44px;
+      font-size: 16px;
+      line-height: 44px;
+      text-align: center;
+      border-bottom: 1px solid #e5e5e5;
+      color: #323232;
+      box-sizing: border-box;
+    }
+
+    .feed_container .feed_con {
+      width: 100%;
+      flex: 1;
+      padding: 4% 0 0 4%;
+      font-size: 15px;
+      overflow: scroll;
+    }
+
+    .feed_con .feed_item {
+      position: relative;
+      width: 44%;
+      margin-right: 4%;
+      text-align: center;
+      float: left;
+    }
+
+    .feed_con .feed_item:nth-child(2n) {
+      margin-right: 0;
+    }
+
+    .feed_item .feed_item_img_w {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+    }
+
+    .feed_item .feed_item_img {
+      position: absolute;
+      width: 100%;
+      height: 100% !important;
+      left: 0;
+    }
+
+    .feed_item .filter_modal {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .feed_footer {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      height: 54px;
+      line-height: 54px;
+    }
+
+    .feed_footer .feed_footer_l,
+    .feed_footer .feed_footer_r {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .feed_footer .feed_footer_l {
+      background: #eee;
+    }
+
+    .feed_footer .feed_footer_r {
+      background: #e02e42;
+      color: #fff;
+    }
+
+    .feed_footer_l:active {
+      background: #ccc;
+    }
+
+    .feed_footer_r:active {
+      background: #be2738;
+    }
+
+    .feed_item .select_icon {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      background: rgba(0, 0, 0, 0.2);
+      top: 5px;
+      right: 5px;
+      box-sizing: border-box;
+      z-index: 2;
+    }
+
+    .feed_item .ban_icon {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 5px;
+      right: 5px;
+      z-index: 2;
+    }
+
+    .feed_item_active .select_icon {
+      background: rgba(203, 39, 61, 1);
+      border: 1px solid rgba(203, 39, 61, 1);
+    }
+
+    .feed_item .select_icon img {
+      width: 12px;
+    }
+
+    .feed_item .feed_item_txt {
+      line-height: 21px;
+      margin: 10px 0 15px 0;
+    }
+
+    .__video_wrap {
+      background: #000;
+    }
+
+    .video-tp {
+      font-family: 'Audiowide';
+      text-align: center;
+      color: #00a67c;
+      font-size: 16px;
+      font-size: 16px;
+      font-style: oblique;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-background-size: 200% 100%;
+      animation: MySignature-animation 5s infinite linear;
+      text-align: center;
+    }
+
+    @keyframes MySignature-animation {
+      0% {
+        background-image: linear-gradient(to right,
+            red,
+            orange,
+            yellow,
+            green,
+            yellow,
+            orange,
+            red,
+            orange,
+            yellow,
+            green,
+            yellow,
+            orange,
+            red);
+      }
+
+      50% {
+        background-image: linear-gradient(to right,
+            orange,
+            yellow,
+            orange,
+            green,
+            red,
+            yellow,
+            red,
+            yellow,
+            orange,
+            red,
+            orange,
+            yellow,
+            green);
+      }
+
+      100% {
+        background-image: linear-gradient(to right,
+            green,
+            red,
+            yellow,
+            orange,
+            green,
+            yellow,
+            orange,
+            red,
+            orange,
+            yellow,
+            red,
+            orange,
+            yellow);
+      }
+    }
+
+    .video-modal {
+      position: fixed;
+      z-index: 99;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .video-item {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 530px;
+      padding: 0 10px;
+      border-radius: 16px 16px 0 0;
+      background: #fff;
+    }
+
+    .video-close {
+      height: 18px;
+      margin: 20px 0;
+      color: #f2f2f2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .video-close>p,
+    .video-close>div {
+      flex: 0.2;
+    }
+
+    .video-close h2 {
+      flex: 0.8;
+      font-size: 16px;
+      font-weight: 500;
+      color: #323233;
+      line-height: 22px;
+      text-align: center;
+    }
+
+    .video-close>div {
+      display: inline-flex;
+      justify-content: flex-end;
+      align-content: center;
+    }
+
+    .video-close .img-close {
+      width: 18px;
+      height: 18px;
+      background-image: url('images/close_pro.png');
+      background-repeat: no-repeat;
+      background-size: 18px 18px;
+      background-position: center center;
+    }
+
+    .copy-text {
+      background: #f3f4f6;
+      border-radius: 4px;
+    }
+
+    .copy-box {
+      position: relative;
+    }
+
+    .copy-box img {
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 11px;
+      left: 10px;
+    }
+
+    .edit_text_btn .video-btn {
+      height: 44px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #ffffff;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      margin-left: 0;
+    }
+
+    .edit_text_btn .video-btn:active {
+      opacity: 0.7;
+    }
+
+    .video-tip {
+      font-size: 15px;
+      font-weight: 400;
+      color: #b4b4b4;
+      line-height: 21px;
+      margin-top: 30px;
+    }
+
+    .video-tutorials {
+      margin-top: 30px;
+    }
+
+    .video-tutorials h4 {
+      font-size: 17px;
+      font-weight: 500;
+      color: #333333;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .video-tutorials small {
+      font-size: 15px;
+      font-weight: 400;
+      color: #576b95;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .video-tutorials p {
+      font-size: 15px;
+      font-weight: 400;
+      color: #333333;
+      line-height: 21px;
+      margin-top: 12px;
+    }
+
+    .video-tutorials .who-img {
+      width: 16px;
+      height: 16px;
+      background-image: url('https://staticoss.bxdaka.com/tatic/images/question%20mark.png');
+      background-repeat: no-repeat;
+      background-size: 16px 16px;
+      background-position: center center;
+      margin-right: 3px;
+    }
+
+    .tutorials-modal {
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+
+    .tutorials-modal img {
+      width: 280px;
+      height: 375px;
+    }
+
+    .copy-box textarea {
+      width: 100%;
+      height: 140px;
+      margin: 0;
+    }
+
+    .__video_wrap {
+      width: 95%;
+      margin: 0 auto;
+      padding: 0 !important;
+    }
+  </style>
+  <style id="__WXWORK_INNER_SCROLLBAR_CSS">
+    ::-webkit-scrollbar {
+      width: 12px !important;
+      height: 12px !important;
+    }
+
+    ::-webkit-scrollbar-track:vertical {}
+
+    ::-webkit-scrollbar-thumb:vertical {
+      background-color: rgba(136, 141, 152, 0.5) !important;
+      border-radius: 10px !important;
+      background-clip: content-box !important;
+      border: 2px solid transparent !important;
+    }
+
+    ::-webkit-scrollbar-track:horizontal {}
+
+    ::-webkit-scrollbar-thumb:horizontal {
+      background-color: rgba(136, 141, 152, 0.5) !important;
+      border-radius: 10px !important;
+      background-clip: content-box !important;
+      border: 2px solid transparent !important;
+    }
+
+    ::-webkit-resizer {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="edit_notice_wrap hidden">
+    <p class="edit_notice_title">
+      想改哪里 <span class="edit_notice_y">点</span>哪里
+    </p>
+    <img class="edit_notice_img" src="images/edit_notice.png" alt="">
+    <div class="notice_btn">
+      <div class="notice_btn_item no_notice">不再提示</div>
+      <div class="notice_btn_item notice_known">我知道了</div>
+    </div>
+  </div>
+  <div class="container">
+    <!--编辑按钮-->
+    <div class="art_section_edit_wrap" style="display: none">
+
+    </div>
+    <!--修改， 添加文本弹框-->
+    <div id="edit_text" class="weui-popup__container">
+      <div class="weui-popup__overlay"></div>
+      <div class="weui-popup__modal needsclick">
+        <div class="edit_text_con">
+          <div id="summernote" style="display: none;"></div>
+          
+          <div class="edit_text_btn">
+            <div class="edit_text_cancel">取消</div>
+            <div class="edit_text_confirm" id="edit_text_confirm">确认</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--添加产品底部弹框-->
+    <div id="pro_wrap" class="weui-popup__container">
+      <div class="weui-popup__overlay"></div>
+      <div class="weui-popup__modal pro_content">
+        <div class="pro_slide_bar">
+          <div class="pro_slide_ul"></div>
+          <div class="close_con" onclick="closeProModal()">
+            <img src="images/close_pro.png" alt="关闭">
+          </div>
+        </div>
+        <!--产品列表-->
+        <div class="pro_wrapper">
+          <div class="pro_content_inner"></div>
+          <div class="weui-loadmore">
+            <i class="weui-loading"></i>
+            <span class="weui-loadmore__tips">正在加载</span>
+          </div>
+          <div class="no_more">没有更多了~</div>
+        </div>
+      </div>
+    </div>
+    <!--反馈图片弹框-->
+    <div id="feed_popup" class="weui-popup__container">
+      <div class="weui-popup__overlay"></div>
+      <div class="weui-popup__modal feed_container">
+        <div class="feed_title">文章含有以下敏感图片</div>
+        <div class="feed_con clear"></div>
+        <div class="feed_footer">
+          <div class="feed_footer_l">
+            <div class="feed_btn">识别有误反馈</div>
+            <div class="feed_cancel hidden">取消</div>
+          </div>
+          <div class="feed_footer_r">
+            <div class="back_edit">去修改</div>
+            <div class="feed_submit hidden">提交反馈</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--文章标题， 封面图， 描述-->
+    <div class="article_title_wrap">
+      <div class="article_title">【大春之道】动画 | 十一条鱼的故事</div>
+      <div class="article_title_other">
+        <div class="article_title_des">我们的身体就像一座鱼池……</div>
+        <div class="article_cover_img">
+          <div class="opacity_cover">
+            <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple/>
+            <img class="opacity_cover_img" src="images/camera_icon.png" alt="相机">
+            <span class="opacity_cover_text">点击更换</span>
+          </div>
+          <img class="inner_cover_img" src="images/article_upload_pic_cover_46241381599135392.jpg"
+            alt="封面图">
+        </div>
+      </div>
+    </div>
+    <div class="edit_top">
+      <div class="edit_add_wrap">
+        <img src="images/app15_tthk_create_jia.png" alt="增加">
+      </div>
+      <div class="edit_add_con_wrap hidden">
+        <div class="edit_add_con">
+          <div class="edit_btn_item_t" onclick="editAddTopText(event)">
+            <div class="edit_btn_txt_icon_t"></div>
+            <span class="edit_btn_txt">文字</span>
+          </div>
+          <div class="edit_btn_item_t">
+            <div class="edit_btn_img_icon_t" onclick="addTopImg(event)"></div>
+            <span class="edit_btn_txt">图片</span>
+          </div>
+          <div class="edit_btn_item_t">
+            <div class="edit_btn_video_icon_t" onclick="addTopVideo(event)"></div>
+            <span class="edit_btn_txt">视频</span>
+          </div>
+          <!-- <div class="edit_btn_item_t add_pro_btn" onclick="addTopPro()">
+            <div class="edit_btn_pro_icon_t"></div>
+            <span class="edit_btn_txt">产品</span>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!--编辑视频弹框-->
+    <div class="video-modal" id="video-modal" style="display: none;">
+      <div class="video-item">
+        <div class="video-close">
+          <p></p>
+          <h2>添加网络视频</h2>
+          <div onclick="videoClose()">
+            <span class="img-close"></span>
+          </div>
+        </div>
+        <div class="copy-box">
+          <textarea class="copy-text" placeholder="请在此处粘贴视频链接"></textarea>
+          <!-- <img
+              src="https://staticoss.bxdaka.com/tatic/images/edit-text-icon.png"
+              alt=""
+            /> -->
+        </div>
+        <div class="edit_text_btn">
+          <div class="edit_text_confirm video-btn" onclick="copyVideo()">
+            确认添加
+          </div>
+        </div>
+        <p class="video-tip">
+          目前支持：腾讯视频、优酷视频、哔哩哔哩(B站)视频，3个平台的视频；
+        </p>
+
+        <section class="video-tutorials">
+          <h4>
+            复制方法：<small onclick="tutorialshow()"><span class="who-img"></span>操作教程</small>
+          </h4>
+          <p>1.点击视频页面的“分享”按钮，并找到“复制链接”选项点击复制。</p>
+          <p>2.将复制的链接“粘贴”到此处的输入框内，点击“确认添加”即可。</p>
+        </section>
+      </div>
+    </div>
+    <!-- 视频分享教程 -->
+    <div class="tutorials-modal" id="tutorials-modal" style="display: none" onclick="tutorialsHide()">
+      <img src="images/Video-link-guide.gif" alt="引导页">
+    </div>
+    <div class="art_section_edit hidden" style="width: 446px;">
+      <div class="art_section_selc">
+        <div class="edit_btn_item add_text_btn" onclick="editAddText(event)">
+          <div class="edit_btn_txt_icon"></div>
+          <span class="edit_btn_txt">文字</span>
+        </div>
+        <div class="edit_btn_item add_img_btn" onclick="editAddImg(event)">
+          <div class="edit_btn_img_icon"></div>
+          <span class="edit_btn_txt">图片</span>
+        </div>
+        <div class="edit_btn_item add_video_btn" onclick="editAddVideo(event)">
+          <div class="edit_btn_video_icon"></div>
+          <span class="edit_btn_txt">视频</span>
+        </div>
+        <!-- <div class="edit_btn_item add_pro_btn" onclick="editAddPro()">
+      <div class="edit_btn_pro_icon"></div>
+      <span class="edit_btn_txt">产品</span>
+    </div> -->
+      </div>
+      <div class="art_section_used">
+        <div class="edit_btn_item art_section_shadow" onclick="deleteEl(event)">
+          <div class="edit_btn_delete_icon"></div>
+          <span class="edit_btn_txt">删除</span>
+        </div>
+        <div class="edit_btn_item edit_edit_btn" onclick="editEdit(event)" style="display: flex;">
+          <div class="edit_btn_edit_icon"></div>
+          <span class="edit_btn_txt">修改</span>
+        </div>
+      </div>
+    </div>
+    <!--文章内容-->
+    <div class="art-content">
+      
+      <p class="other-section"><br></p>
+      <p data-mpa-powered-by="yiban.io">作为一个几乎不怎么看综艺的人，我竟然看完了脱口秀大会第三季。如果你没看过这个，我强烈建议你看看，刚好国庆假期还有几天，还能挣扎一下。</p><p><br/></p><p>看脱口秀的时间里，我一直在猜最后冠军有可能是谁。<span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">前些日子脱口秀大会结束了，冠军的得主是那个</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">一边弹一边唱的王勉，个人来看虽然他的表演很炸场，</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">现场效果很好。</span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><br/></span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">但是如果一定要让我选一个冠军的话，那我觉得冠军应该妥妥的是：罗永浩，中国第一代网红，可能是中国最好的脱口秀演员，曾经创办的手机公司差点收购了苹果。</span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><br/></span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">为什么这么说？有请大家首先看下老罗在脱口秀大会的首场脱口秀表演，一共是十三分钟。</span></p><p><br/></p><p><iframe class="video_iframe rich_pages" data-vidtype="1" data-cover="http%3A%2F%2Fshp.qpic.cn%2Fqqvideo_ori%2F0%2Fb3155gzeytc_496_280%2F0" allowfullscreen="" frameborder="0" data-ratio="1.7777777777777777" data-w="864" src="http://v.qq.com/iframe/preview.html?width=500&height=375&auto=0&vid=b3155gzeytc"></iframe></p><p><br/></p><p>整个脱口秀，罗永浩以自嘲的口吻讲述了自己欠债6个亿之后生活的变化。首先从搜索引擎的结果来看很多人可能不知道这老哥是怎么能欠到六个亿的债务的。</p><p><br/></p><p><img class="rich_pages" data-ratio="0.4557739557739558" data-s="300,640" src="http://share.ttge.com/image/index?img=mmbiz.qpic.cn/mmbiz_png/k1lLFZEXyam1dic91G63M1mbqicnaTllyF6408OlhaV97DiaicdLqLA5LJjWjgBCo8Fk2kkCB44cFfWoib3DqxTCz4g/640?wx_fmt=png" data-type="png" data-w="1628" style="text-align: center;white-space: normal;"/></p><p><br/></p><p>简单解释下，就是老罗在做锤子科技也就是锤子手机的时候，搞了不少贷款，<span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">最后的结局大家都知道，锤子在2018年总共出售不足500万，锤子没有成功收购苹果，卖身给了字节跳动，同时还欠下了一大笔钱。</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">说实话做锤子手机的时候，老罗还是有很大的雄心的，只不过最终理想败给了现实。</span></p><p><br/></p><p>欠债六个亿之后，老罗的老婆提议去国外看看，此处意在点名乐视，学学贾跃亭老哥，说到这里已经引起了全场的欢呼了。然后紧接着而老罗又立马补充回复到：收购苹果的事情咱们能不能缓一缓。</p><p><br/></p><p style="text-align: center;"><img class="rich_pages" data-ratio="0.8206785137318255" data-s="300,640" src="http://share.ttge.com/image/index?img=mmbiz.qpic.cn/mmbiz_png/k1lLFZEXyam1dic91G63M1mbqicnaTllyFJx3qlm5aKUBEpBZ1em8bDB7cG33THCtqM4GSnzhqJCJicicdlJH6er6w/640?wx_fmt=png" data-type="png" data-w="1238" style=""/></p><p style="text-align: center;"><img class="rich_pages" data-ratio="0.5867507886435331" data-s="300,640" src="http://share.ttge.com/image/index?img=mmbiz.qpic.cn/mmbiz_png/k1lLFZEXyam1dic91G63M1mbqicnaTllyFiagK447mOPaIdJ3r6gxjcT27sC46dWczRMHPnEhN1IN77Asnib4OLhXQ/640?wx_fmt=png" data-type="png" data-w="1268" style=""/></p><p><br/></p><p>这一句回复即没有正面评价贾跃亭的事情，同时又拿自己没有实现的理想「收购苹果」来自嘲，又表现出了自己不逃票，一定要还债的决心。总之就是又搞笑又用自嘲的方式传达了自己的决心。</p><p><br/></p><p>上面是老罗在十三分钟中的一个小片段，如果能仔细看这个视频两三遍，你会发现整个片段中充满这样的智慧与自嘲。<span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">所以，建议各位还是翻到上面去，仔细看看视频，老罗得不到这个冠军可惜了！</span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><br/></span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">听完这段视频，除了仍然感叹老罗的幽默能力之外，除了看到老罗还钱的真诚之外，相信很多人会跟我一样有一件事情耿耿于怀：</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;color: rgb(255, 41, 65);">老罗是如何能在两年内就还了四个亿的债务？这么好的路子，我也要来搞搞。</span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><br/></span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"></span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">老罗自己开诚布公说了还款主要两种方式：卖锤子卖了一部分钱，加上直播卖货赚的钱。实际上，在这两者之外我还学习到在借债还钱中的另一种行业潜规则：</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">不良资产，这个潜规则是4亿的债务，几经转手可能就变成了2亿甚至更低。</span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><br/></span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">虽然这种不良资产，我们基本接触不到，但是还是让我大开眼界的，</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">请听我解释下：首先每个</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">银行都有很多的贷款，其中有一定比例的贷款因为企业或者个人的原因很难偿还，甚至影响到了银行业务的运营。</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">这</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">时候银行会把这个贷款资产卖给别人，这个别人就是</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">资管公司。</span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"></span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">而这些债务卖给资管公司的时候并不会原价卖给别人，</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">会打上一定的折扣，这个折扣可能就是1-9折各种都有，根据债务人可能的偿还能力来评估。</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">银行出售之后，这个贷款方就变成了资管公司，资管公司能催上来多少就能拿到多少，这个时候其实这个贷款已经贬值了。</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"></span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><br/></span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">而资管公司如果觉得收不上来，还可以继续往下拍卖，这样一来一个价值1亿的贷款转来转去，就不一定会是多少了，实际还款会变得少了很多。</span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><br/></span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;color: rgb(255, 41, 65);">整个流程可以理解为传锅，把一个大额的债务一层一层往下传递，每往下一层，债务都变少一部分。</span><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">而之所以上面的人愿意亏本卖出，是因为他们觉得债务拿在手里自己也没能力追到这个债务，卖出可以最小化损失。</span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><br/></span></p><p><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">这是件很有意思的事情，比如说老罗所说的偿还了4亿的债务，真正偿还的部分是多少，还真不知道咧。</span></p>
+    </div>
+    <!--底部按钮-->
+    <div class="footer">
+      <div class="footer_l" onclick="cancelDelete()">撤销删除</div>
+      <div class="footer_r" id="save_article">保存</div>
+    </div>
+    <div class="footer_bar"></div>
+  </div>
+  <!-- <script type="text/javascript" async="" charset="utf-8" src="https://c.cnzz.com/core.php?web_id=1277638470&amp;t=z"> -->
+  </script>
+  <script src="js/jquery-1.11.0.js"></script>
+  <script src="js/jquery-weui.min.js"></script>
+  <script src="js/fastclick.min.js"></script>
+  <script type="text/javascript" src="js/jweixin-1.4.0.js"></script>
+  <script src="js/weixinAudio1.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+  <script src="js/summernote1.0.2.js"></script>
+  <script type="text/javascript">
+    // weixin
+    wx.config({
+      debug: false,
+      appId: 'wxc3f4464febc9ba61',
+      timestamp: '1602310509',
+      nonceStr: 'ObjOdanzA6kSCmzW',
+      signature: 'fa143bd6b39d1dbff69ff4edfd40d8b87682aa22',
+      jsApiList: [
+        'checkJsApi',
+        'chooseImage',
+        'uploadImage',
+        'hideMenuItems',
+      ],
+    })
+    wx.ready(function () {
+      wx.hideMenuItems({
+        menuList: [
+          'menuItem:share:timeline',
+          'menuItem:share:appMessage',
+          'menuItem:share:weiboApp',
+          'menuItem:share:qq',
+          'menuItem:share:QZone',
+        ],
+      })
+    })
+  </script>
+  <script type="text/javascript">
+    // 300毫秒延迟
+    $(function () {
+      FastClick.attach(document.body)
+    })
+  </script>
+  <script>
+    var appId = 40
+    var editTextStatus = 1 // 1为顶部添加文本   2 添加文本    3 编辑文本   4 编辑标题
+    var isAddTop = false // 是否是在顶部添加图片
+    var uid = 'ZnfgIpdQmsWKx'
+    var avatar_url = 'http://static.bxdaka.com/user_avatar_20200903_5f5090eeed093.jpg'
+    var nickname = "%E4%B8%AB%E4%B8%AB"
+    nickname = decodeURIComponent(nickname)
+    var pageIndex = 0 // 产品列表的页码数
+    var loading = false //状态标记
+    // 险种公司
+    var companyArr = []
+    // 已删除元素
+    var revoke_arr = []
+    var del_num = 0
+    var article_des = decodeURIComponent(
+      "%E6%88%91%E4%BB%AC%E7%9A%84%E8%BA%AB%E4%BD%93%E5%B0%B1%E5%83%8F%E4%B8%80%E5%BA%A7%E9%B1%BC%E6%B1%A0%E2%80%A6%E2%80%A6"
+    )
+    var article_title = decodeURIComponent(
+      "%E3%80%90%E5%A4%A7%E6%98%A5%E4%B9%8B%E9%81%93%E3%80%91%E5%8A%A8%E7%94%BB+%7C+%E5%8D%81%E4%B8%80%E6%9D%A1%E9%B1%BC%E7%9A%84%E6%95%85%E4%BA%8B"
+    )
+    var isShowedNotice = localStorage.getItem('isShowedNotice')
+    var cmpyArr = '[]'
+    try {
+      companyArr = JSON.parse(cmpyArr)
+    } catch (e) {
+      alert('险种公司获取失败')
+    }
+    // pushHistory()
+    // window.addEventListener('popstate', windowListener, false);
+    var curCompanyId = companyArr.length > 0 ? companyArr[0].company_id : '' // 当前点击的公司
+    var article_cover_media_id = ''
+    $(document).ready(function () {
+      var ua = navigator.userAgent.toLowerCase()
+      if (/(android)/i.test(ua)) {
+        window.onresize = function () {
+          if (
+            document.activeElement.tagName == 'INPUT' ||
+            document.activeElement.tagName == 'TEXTAREA'
+          ) {
+            setTimeout(function () {
+              var top = document.activeElement.getBoundingClientRect().top
+              console.log(top)
+              window.scrollTo(0, top)
+            }, 0)
+          }
+        }
+      }
+      // 编辑文章提示
+      if (isShowedNotice) {
+        $('.edit_notice_wrap').addClass('hidden')
+      } else {
+        $('.edit_notice_wrap').removeClass('hidden')
+      }
+      $('.edit_notice_wrap .no_notice').click(function () {
+        localStorage.setItem('isShowedNotice', true)
+        $('.edit_notice_wrap').addClass('hidden')
+      })
+      $('.edit_notice_wrap .notice_known').click(function () {
+        $('.edit_notice_wrap').addClass('hidden')
+      })
+      $('.edit_notice_wrap').on('touchmove', function (e) {
+        e.preventDefault()
+      })
+      // 文章摘要
+      checkArticleDes()
+      // $('#summernote').summernote();
+      // 富文本编辑器
+      $('#summernote').summernote({
+        placeholder: '请输入文字',
+        tabsize: 2,
+        height: 200,
+      })
+      //播放音频
+      var audio_controls = $('audio').attr('controls')
+      var weixinAudioObj = $('.weixinAudio').weixinAudio()
+      if (!audio_controls) {
+        $('audio').attr('controls', 'controls')
+      }
+      // 添加单一播放的逻辑
+      $('.weixinAudio').on('click', function (event) {
+        var currentIndex = $(this).attr('data-index')
+        $('.edit_edit_btn').hide()
+        enditModla($(this))
+        // 遍历所有对象，找到非当前点击，执行pause()方法;
+        $.each(weixinAudioObj, function (i, el) {
+          if (i != 'weixinAudio' + currentIndex) {
+            el.pause()
+          }
+        })
+      })
+      // 初始化富文本
+      $('#summernote').summernote('code', '')
+      // 为没有art-section的标签加上art-section   加三层
+      $('.art-content')
+        .children()
+        .each(function (index) {
+          if (
+            !$(this).hasClass('other-section') &&
+            !$(this).hasClass('_135editor') &&
+            !$(this).hasClass('art-section')
+          ) {
+            // 如果不存在
+            var _this = this
+            $(_this).addClass('other-section')
+            if ($(_this).find('section').length > 0) {
+              $(_this)
+                .children()
+                .each(function () {
+                  var _this2 = this
+                  if (
+                    !$(_this2).hasClass('other-section') &&
+                    !$(_this2).hasClass('_135editor') &&
+                    !$(_this2).hasClass('art-section')
+                  ) {
+                    $(_this2).addClass('other-section')
+                  }
+                  if ($(_this2).children().length > 0) {
+                    $(_this2)
+                      .children()
+                      .each(function () {
+                        if (
+                          !$(this).hasClass('other-section') &&
+                          !$(this).hasClass('_135editor') &&
+                          !$(this).hasClass('art-section')
+                        ) {
+                          $(this).addClass('other-section')
+                        }
+                      })
+                  }
+                })
+            }
+          }
+        })
+      // $('.art-section').each(function (index, el) {
+      //   if ($(this).find('iframe').length) {
+      //     var iframeWidth = $(this).find('iframe').width();
+      //     var iframeHeight = $(this).find('iframe').height();
+      //     $(this).css('position', 'relative');
+      //     $(this).prepend('<div class="iframe_div" style="position: absolute; width: ' + iframeWidth + 'px; height: ' + iframeHeight + 'px;z-index: 8;"></div>')
+      //   }
+      // });
+      // 135编辑器  && 其他文章的iframe video处理
+      $('iframe').parent().addClass('__video_wrap')
+      $('video').parent().addClass('__video_wrap')
+      $('.__video_wrap').each(function (index, el) {
+        var iframeWidth = $(this).find('iframe').width()
+        var iframeHeight = $(this).find('iframe').height()
+        $(this).css('position', 'relative')
+        $(this).prepend(
+          '<div class="iframe_div" style="position: absolute; width: ' +
+          iframeWidth +
+          'px; height: ' +
+          iframeHeight +
+          'px;z-index: 8;"></div>'
+        )
+        $(this).append(
+          '<p style="width: 100%;z-index: 8; " class="video-tp">编辑视频点击此处</p>'
+        )
+      })
+      $('.art-content, .content').on('click', '.__video_wrap', function (
+        event
+      ) {
+        console.log(11111)
+        $('.edit_edit_btn').hide()
+        enditModla($(this))
+      })
+      // 设置编辑框的宽度为设备宽度
+      $('.art_section_edit').width(document.body.clientWidth - 30)
+      // 135编辑器
+      $('._135editor').on('click', function (e) {
+        if ($(e.currentTarget).hasClass('cur_edit_con')) {
+          return
+        }
+        // 删除占位元素
+        $('._holder').remove()
+        $('.edit_edit_btn').show()
+        $('.art_section_edit').removeClass('hidden')
+        $('.cur_edit_con').removeClass('cur_edit_con')
+        $(this).addClass('cur_edit_con')
+        $(this).after($('.art_section_edit'))
+      })
+      $('.art-section-new').on('click', function (e) {
+        if ($(e.currentTarget).hasClass('cur_edit_con')) {
+          return
+        }
+        // 删除占位元素
+        $('._holder').remove()
+        $('.edit_edit_btn').show()
+        $('.art_section_edit').removeClass('hidden')
+        $('.cur_edit_con').closest('.art-section').removeClass('padding_none')
+        $('.cur_edit_con').removeClass('cur_edit_con')
+        $(this).addClass('cur_edit_con')
+        $(this).after($('.art_section_edit'))
+      })
+      // 旧的文章编辑的iframe的点击
+      $('.iframe_div').click(function (e) {
+        if ($(e.currentTarget).hasClass('cur_edit_con')) {
+          return
+        }
+        // 删除占位元素
+        $('._holder').remove()
+        $('.edit_edit_btn').hide()
+        $('.art_section_edit').removeClass('hidden')
+        $('.art-section').css('margin-bottom', '30px')
+        $('.cur_edit_con').closest('.art-section').removeClass('padding_none')
+        $('.cur_edit_con').removeClass('cur_edit_con')
+        $('.art-content')
+          .find('.cur_art_section')
+          .removeClass('cur_art_section')
+        $(this).parent().addClass('cur_edit_con')
+        $('.cur_edit_con').closest('.art-section').addClass('padding_none')
+        $(this).parent().after($('.art_section_edit'))
+        $('.art_section_edit').css('margin-bottom', '30px')
+        $(this).parent().css('margin-bottom', '0')
+        $('.art_section_edit').css('margin-bottom', '30px')
+        scrollToEl()
+      })
+      // 新的文章编辑的iframe处理
+      $('._iframe_editor').click(function (e) {
+        if ($(e.currentTarget).hasClass('cur_edit_con')) {
+          return
+        }
+        // 删除占位元素
+        $('._holder').remove()
+        $('.edit_edit_btn').hide()
+        $('.art_section_edit').removeClass('hidden')
+        $('.cur_edit_con').removeClass('cur_edit_con')
+        $('.art-content')
+          .find('.cur_art_section')
+          .removeClass('cur_art_section')
+        $(this).parent().addClass('cur_edit_con')
+        $(this).parent().after($('.art_section_edit'))
+        scrollToEl()
+      })
+      // 头部添加内容
+      $('.edit_add_wrap').on('click', function (e) {
+        if ($(e.currentTarget).hasClass('cur_edit_con')) {
+          return
+        }
+        console.log(66)
+        // 删除占位元素
+        $('._holder').remove()
+        $('.art-section').css('margin-bottom', '30px')
+        $('.edit_add_con_wrap').hasClass('hidden') ?
+          $('.edit_add_con_wrap').removeClass('hidden') :
+          $('.edit_add_con_wrap').addClass('hidden')
+        $('.cur_edit_con').closest('.art-section').removeClass('padding_none')
+        $('.cur_edit_con').removeClass('cur_edit_con')
+        $('.art_section_edit').addClass('hidden')
+      })
+      $(document).click(function (e) {
+        if (
+          $(e.target).closest('.edit_add_wrap').length > 0 ||
+          $(e.target).closest('.edit_add_con_wrap').length > 0
+        ) {
+          return
+        }
+        $('.edit_add_con_wrap').addClass('hidden')
+      })
+      // 顶部添加文本
+      $('.edit_text_cancel').on('click', function () {
+        isAddTop = false
+        $('#summernote').summernote('code', '')
+        $.closePopup()
+        stopBodyScroll(false)
+      })
+      $('#edit_text_confirm').on('click', function () {
+        var topStr = $('#summernote').summernote('code')
+        // _holder为占位元素
+        var _html =
+          '<div class="_holder" style="height: 52px;"></div><p class="art-section-new">' +
+          topStr +
+          '</p>'
+        if ($('#summernote').summernote('isEmpty') && editTextStatus != 5) {
+          $.toast('请输入文字', 'text')
+          return
+        }
+        if (editTextStatus == 1) {
+          // 顶部添加文本
+          $('.art-content').prepend(_html)
+          $('._holder').remove()
+        } else if (editTextStatus == 2) {
+          // 添加文本
+          if ($('.cur_edit_con').closest('._135editor').length > 0) {
+            $('.art_section_edit').after(_html)
+            $('#summernote').summernote('code', '')
+            $.closePopup()
+            return
+          }
+          if ($('.cur_edit_con').closest('.art-section').length) {
+            // 旧版之前文章的div
+            $('.cur_edit_con')
+              .closest('.art-section')
+              .addClass('cur_art_section')
+            $('.cur_art_section').next().hasClass('art_section_edit') ?
+              $('.art_section_edit').after(_html) :
+              $('.cur_art_section').after(_html)
+          } else {
+            $('.art_section_edit').after(_html)
+          }
+          // else if ($('.cur_edit_con').closest('.art-section-new').length) {
+          //   // 新版新加的段落，图片，产品都会是art-section-new的类
+          //   $('.cur_edit_con').closest('.art-section-new').addClass('cur_art_section');
+          //   $('.cur_art_section').next().hasClass('art_section_edit') ? $('.art_section_edit').after(_html) : $('.cur_art_section').after(_html);
+          // } else if ($('.cur_edit_con').closest('._135editor').length) {
+          //   // 这个是135编辑器的类
+          //   $('.cur_edit_con').closest('._135editor').addClass('cur_art_section');
+          //   $('.cur_art_section').next().hasClass('art_section_edit') ? $('.art_section_edit').after(_html) : $('.cur_art_section').after(_html);
+          // } else if ($('.cur_edit_con').closest('.other-section').length) {
+          //   // 其他文章的情况
+          //   $('.cur_edit_con').closest('.other-section').addClass('cur_art_section');
+          //   $('.cur_art_section').next().hasClass('art_section_edit') ? $('.art_section_edit').after(_html) : $('.cur_art_section').after(_html);
+          // }
+        } else if (editTextStatus == 4) {
+          if (topStr.length > 64) {
+            $.toast('文章标题最多输入64个字', 'text')
+            return
+          }
+          $('.article_title_wrap .article_title').text($(_html).text())
+        } else if (editTextStatus == 5) {
+          if (topStr.length > 120) {
+            $.toast('文章摘要最多输入64个字', 'text')
+            return
+          }
+          article_des = $('#summernote').summernote('isEmpty') ?
+            '' :
+            $(_html).text()
+          checkArticleDes()
+        } else {
+          // 修改
+          $('.cur_edit_con').html(topStr)
+        }
+        // articleEventListener();
+        $('#summernote').summernote('code', '')
+        $.closePopup()
+        $('.edit_add_con_wrap').addClass('hidden')
+      })
+      // 为文章内容添加监听事件
+      articleEventListener()
+      // 点击产品分类
+      // 险种分类tab
+      var insureTabStr = ''
+      if (companyArr.length > 0) {
+        getInsureList(curCompanyId, pageIndex)
+        for (var i = 0; i < companyArr.length; i++) {
+          if (i == 0) {
+            insureTabStr +=
+              '<div class="pro_slide_li pro_slide_active" data-company_id="' +
+              companyArr[i].company_id +
+              '">' +
+              '<div class="pro_item_text">' +
+              companyArr[i].company_name +
+              '</div>' +
+              '<div class="pro_item_line"></div>' +
+              '</div>'
+          } else {
+            insureTabStr +=
+              '<div class="pro_slide_li" data-company_id="' +
+              companyArr[i].company_id +
+              '">' +
+              '<div class="pro_item_text">' +
+              companyArr[i].company_name +
+              '</div>' +
+              '<div class="pro_item_line"></div>' +
+              '</div>'
+          }
+        }
+        $('.pro_slide_ul').append(insureTabStr)
+      } else {
+        if ($('.pro_content_inner').html() != '') {
+          $('.add_pro_btn').removeClass('hidden')
+        } else {
+          $('.add_pro_btn').addClass('hidden')
+        }
+      }
+      $('.pro_slide_ul .pro_slide_li').on('click', function () {
+        $('.pro_slide_ul .pro_slide_active').removeClass('pro_slide_active')
+        $(this).addClass('pro_slide_active')
+      })
+      // 产品列表滚动加载
+      $('.pro_wrapper').infinite()
+      // 监听产品滚动到底部  加载更多
+      $('.pro_wrapper')
+        .infinite()
+        .on('infinite', function () {
+          // if ($('.pro_wrapper .weui-loadmore').css('dispaly') == 'block') return
+          if (loading) return
+          loading = true
+          if ($('.no_more').css('display') == 'none') {
+            pageIndex += 1
+            // 加载更多
+            getInsureList(curCompanyId, pageIndex)
+          }
+        })
+      // 监听弹框关闭
+      $('#pro_wrap').on('click', function (e) {
+        stopBodyScroll(false)
+      })
+      // 选择公司 产品
+      $('.pro_slide_ul .pro_slide_li').on('click', function (e) {
+        curCompanyId = $(this).data('company_id')
+        $('.pro_slide_ul .pro_slide_li').removeClass('pro_slide_active')
+        $(this).addClass('pro_slide_active')
+        pageIndex = 0
+        $('.pro_content_inner').empty()
+        $('.no_more').hide()
+        // 获取产品列表
+        getInsureList(curCompanyId, pageIndex)
+      })
+      // 旧版插入的产品 图片  文本  添加点击事件
+      $('.art-content').on(
+        'click',
+        '.product-section, .art-section-img, .art-section-text',
+        function (e) {
+          if (
+            $(e.currentTarget).hasClass('product-section') ||
+            $(e.currentTarget).hasClass('art-section-img')
+          ) {
+            $('.edit_edit_btn').hide()
+          } else {
+            $('.edit_edit_btn').show()
+          }
+          $('.art_section_edit').removeClass('hidden')
+          $('.art-section').css('margin-bottom', '30px')
+          $('.cur_edit_con')
+            .closest('.art-section')
+            .removeClass('padding_none')
+          $('.cur_edit_con').removeClass('cur_edit_con')
+          $('.art-content')
+            .find('.cur_art_section')
+            .removeClass('cur_art_section')
+          $(this).addClass('cur_edit_con')
+          $('.cur_edit_con').closest('.art-section').addClass('padding_none')
+          $(this).after($('.art_section_edit'))
+          $('.art_section_edit').css('margin-bottom', '30px')
+          $(this).css('margin-bottom', '0')
+          $('.art_section_edit').css('margin-bottom', '30px')
+          scrollToEl()
+        }
+      )
+      // 新版插入的div为 art-section-new
+      $('.art-content').on('click', '.art-section-new', function (e) {
+        // 删除占位元素
+        $('._holder').remove()
+        if ($(e.currentTarget).hasClass('product-section')) {
+          $(this).removeAttr('style')
+          return
+        }
+        $('.art_section_edit').removeClass('hidden')
+        $('.cur_edit_con').removeClass('cur_edit_con')
+        $('.art-content')
+          .find('.cur_art_section')
+          .removeClass('cur_art_section')
+        $(this).addClass('cur_edit_con')
+        $(this).after($('.art_section_edit'))
+      })
+
+      // 修改文章标题
+      $('.article_title_wrap .article_title').click(function () {
+        editTextStatus = 4
+        var curContent = $('.article_title_wrap .article_title').text()
+        $('#summernote').summernote('code', curContent)
+        $('#edit_text').popup()
+      })
+      // 修改文章摘要
+      $('.article_title_other .article_title_des').click(function () {
+        editTextStatus = 5
+        var curContent = $('.article_title_other .article_title_des').text()
+        $('#summernote').summernote('code', curContent)
+        $('#edit_text').popup()
+      })
+      // 修改文章封面
+      $("#uploaderInput").on("change", function(e){
+          var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
+          for (var i = 0, len = files.length; i < len; ++i) {
+              var file = files[i];
+              if (url) {
+                  src = url.createObjectURL(file);
+              } else {
+                  src = e.target.result;
+              }
+              console.log(src)
+              
+              $(".opacity_cover").css({'background-image':'url('+src+')','background-size':'cover'});
+              // $(".inner_cover_img").append($(tmpl.replace('#url#', src)));
+          }
+      });
+      
+      $('.article_title_wrap .article_cover_img').click(function () {
+        // wx.chooseImage({
+        //   count: 1,
+        //   sizeType: ['compressed'], //压缩图
+        //   success: function (res) {
+        //     if (!res.localIds) {
+        //       return
+        //     }
+        //     var localIds = res.localIds.toString()
+        //     $('.inner_cover_img').attr('src', localIds)
+
+        //     function uploadAvatar() {
+        //       wx.uploadImage({
+        //         localId: localIds,
+        //         isShowProgressTips: 1, // 默认为1，显示进度提示
+        //         success: function (res) {
+        //           $.toast('上传成功', 'text')
+        //           article_cover_media_id = res.serverId
+        //         },
+        //         fail: function (res) {
+        //           $.toast('上传失败', 'text')
+        //         },
+        //       })
+        //     }
+        //     uploadAvatar()
+        //   },
+        // })
+      })
+      // 保存文章
+      $('#save_article').click(function () {
+        var article_id = '-hQDjyn1PA9ZU'
+        $.showLoading('保存中...')
+        var art_title = $('.article_title_wrap .article_title').text()
+        var article_sub_title = $(
+          '.article_title_wrap .article_title_des'
+        ).text()
+        if ($('.art-content .cur_edit_con').hasClass('art-section')) {
+          $('.art-content .cur_edit_con').css('margin-bottom', '30px')
+        }
+        $('.art-content .cur_edit_con').removeClass('cur_edit_con')
+        // 还原art_section_edit
+        $('.art_section_edit_wrap').html($('.art_section_edit'))
+        $('.art-content .padding_none').removeClass('padding_none')
+        $('.art-content .cur_art_section').removeClass('.cur_art_section')
+        $('.art-content .consult-column').removeClass('hidden')
+        // 处理iframe的元素删除
+        $('.art-content .iframe_div').remove()
+        // 处理video提示
+        $('.art-content .video-tp').remove()
+        if (revoke_arr.length > 0) {
+          for (var m = 0; m < revoke_arr.length; m++) {
+            $('.' + revoke_arr[m]).remove()
+          }
+        }
+        var page_html = $('.art-content').html()
+        $.ajax({
+          url: '/index.php/Index/tthk/saveArticle',
+          type: 'post',
+          data: {
+            article_id: article_id,
+            content: page_html,
+            uid: uid,
+            title: art_title,
+            article_sub_title: article_sub_title,
+            article_cover_media_id: article_cover_media_id,
+          },
+          dataType: 'json',
+          success: function (res) {
+            $.hideLoading()
+            if (res.code == 0) {
+              var art_id = res.id
+              $.toast('保存成功', 'text')
+              window.location.href =
+                '/index.php/Index/tthk/article_content/article_id/' +
+                art_id +
+                '/uid/' +
+                uid +
+                '/edit/0/ad/1'
+            } else {
+              if (res.data) {
+                if (res.data.feedback) {
+                  var feedBackImgArr = res.data.feedback
+                  var _htmlStr = ''
+                  for (var i = 0; i < feedBackImgArr.length; i++) {
+                    _htmlStr +=
+                      '<div class="feed_item" data-scenes="' +
+                      feedBackImgArr[i].scenes +
+                      '" data-type="' +
+                      feedBackImgArr[i].type +
+                      '" data-location="' +
+                      feedBackImgArr[i].location +
+                      '" data-url="' +
+                      feedBackImgArr[i].url +
+                      '">' +
+                      '<div class="select_icon hidden">' +
+                      '<img src="images/feed_select.png" alt="">' +
+                      '</div>' +
+                      '<img class="ban_icon hidden" src="images/ban_icon.png" alt="">' +
+                      '<div class="feed_item_img_w">' +
+                      '<img class="feed_item_img" src="' +
+                      feedBackImgArr[i].url +
+                      '" alt = "" >' +
+                      '<div class="filter_modal hidden"></div>' +
+                      '</div>' +
+                      '<div class="feed_item_txt">' +
+                      feedBackImgArr[i].text +
+                      '</div>' +
+                      '</div>'
+                  }
+                  // 重置状态
+                  $('.feed_footer .feed_btn').removeClass('hidden')
+                  $('.feed_footer .feed_cancel').addClass('hidden')
+                  $('.feed_footer .back_edit').removeClass('hidden')
+                  $('.feed_footer .feed_submit').addClass('hidden')
+                  $('.feed_con .feed_item').removeClass('feed_item_active')
+                  $('.feed_con').empty()
+                  $('.feed_con').append(_htmlStr)
+                  $('.feed_con .feed_item').on('click', function () {
+                    var curType = $(this).data('type')
+                    if (
+                      curType == 'porn' ||
+                      curType == 'terrorism' ||
+                      curType == 'ad'
+                    ) {
+                      if ($('.feed_footer_l .feed_btn').hasClass('hidden')) {
+                        $(this).hasClass('feed_item_active') ?
+                          $(this).removeClass('feed_item_active') :
+                          $(this).addClass('feed_item_active')
+                      }
+                    }
+                  })
+                  $('#feed_popup').popup()
+                } else {
+                  $.toast(res.msg, 'text')
+                }
+              } else {
+                $.toast(res.msg, 'text')
+              }
+            }
+          },
+          error: function (res) {
+            $.toast('保存失败，请重试')
+          },
+        })
+      })
+      // 识别有误反馈
+      $('.feed_footer .feed_btn').on('click', function () {
+        $('.feed_footer .feed_btn').addClass('hidden')
+        $('.feed_footer .feed_cancel').removeClass('hidden')
+        $('.feed_footer .back_edit').addClass('hidden')
+        $('.feed_footer .feed_submit').removeClass('hidden')
+        $('.feed_con .feed_item').each(function () {
+          var curType = $(this).data('type')
+          if (
+            curType == 'porn' ||
+            curType == 'terrorism' ||
+            curType == 'ad'
+          ) {
+            $(this).find('.ban_icon').addClass('hidden')
+            $(this).find('.filter_modal').addClass('hidden')
+            $(this).find('.select_icon').removeClass('hidden')
+          } else {
+            $(this).find('.select_icon').addClass('hidden')
+            $(this).find('.ban_icon').removeClass('hidden')
+            $(this).find('.filter_modal').removeClass('hidden')
+          }
+        })
+      })
+      $('.feed_footer .feed_cancel').on('click', function () {
+        $('.feed_footer .feed_btn').removeClass('hidden')
+        $('.feed_footer .feed_cancel').addClass('hidden')
+        $('.feed_footer .back_edit').removeClass('hidden')
+        $('.feed_footer .feed_submit').addClass('hidden')
+        $('.feed_con .feed_item .select_icon').removeClass(
+          'select_icon_active'
+        )
+        $('.feed_con .feed_item .select_icon').addClass('hidden')
+        $('.feed_con .feed_item .ban_icon').addClass('hidden')
+        $('.feed_con .feed_item .filter_modal').addClass('hidden')
+      })
+      $('.back_edit').click(function () {
+        $('.feed_con').empty()
+        $.closePopup()
+      })
+      $('.feed_submit').click(function () {
+        var feedImgArr = []
+        if ($('.feed_con .feed_item_active').length <= 0) {
+          $.toast('无反馈内容', 'text')
+          return
+        }
+        $('.feed_con .feed_item_active').each(function () {
+          var feedImgItem = {}
+          feedImgItem.url = $(this).data('url')
+          feedImgItem.location = $(this).data('location')
+          feedImgItem.type = $(this).data('type')
+          feedImgItem.scene = $(this).data('scenes')
+          feedImgArr.push(feedImgItem)
+        })
+        $.ajax({
+          url: '/index/feedback/send',
+          type: 'post',
+          data: {
+            uid: uid,
+            from: 0,
+            value: '-hQDjyn1PA9ZU',
+            appid: appId,
+            strurl: JSON.stringify(feedImgArr),
+          },
+          dataType: 'json',
+          success: function (res) {
+            console.log(res)
+            if (res.code == 0) {
+              $.toast('反馈成功', 'text')
+              $('.feed_con').empty()
+              $.closePopup()
+            } else {
+              $.toast(res.msg, 'text')
+            }
+          },
+          fail: function (res) {
+            alert('请求失败')
+          },
+        })
+      })
+    })
+
+    function articleEventListener() {
+      $('.art-content')
+        .children()
+        .on('click', function (e) {
+          console.log('点击事件')
+          var nodeName = e.target.nodeName.toLowerCase()
+          // .weixinAudio 音频外部class 点击返回
+          if (
+            $(e.target).parents().is('.art_section_edit') ||
+            $(e.target).hasClass('iframe_div') ||
+            $(e.target).parents().is('._135editor') ||
+            $(e.target).hasClass('_135editor') ||
+            $(e.target).hasClass('_iframe_editor') ||
+            $(e.target).parents().is('.weixinAudio') ||
+            $(e.target).hasClass('weixinAudio') ||
+            $(e.target).parents().is('.__video_wrap') ||
+            $(e.target).hasClass('__video_wrap')
+          ) {
+            $('.edit_edit_btn').hide()
+            if ($(e.target).parents().is('.__video_wrap')) {
+              var obj = $(e.target).parents('.__video_wrap')
+              enditModla(obj)
+            } else if ($(e.target).hasClass('__video_wrap')) {
+              var obj = $(e.target)
+              enditModla(obj)
+            }
+            // if ($(e.target).parents().is('.weixinAudio')) {
+            //   var obj = $(e.target).parents('.weixinAudio')
+            //   enditModla(obj)
+            // } else if ($(e.target).hasClass('__video_wrap')) {
+            //   var obj = $(e.target)
+            //   enditModla(obj)
+            // }
+            return false
+          }
+          if (
+            nodeName == 'img' ||
+            nodeName == 'gift' ||
+            nodeName == 'video' ||
+            nodeName == 'audio'
+          ) {
+            $('.edit_edit_btn').hide()
+          } else {
+            $('.edit_edit_btn').show()
+          }
+          enditModla($(e.target))
+          // 删除占位元素
+          // $('._holder').remove();
+          // $('.art_section_edit').removeClass('hidden');
+          // // $('.edit_add_con_wrap').hide();
+          // $('.art-section').css('margin-bottom', '30px');
+          // $('.cur_edit_con').closest('.art-section').removeClass('padding_none');
+          // $('.cur_edit_con').removeClass('cur_edit_con');
+          // $('.art-content').find('.cur_art_section').removeClass('cur_art_section');
+          // $(e.target).addClass('cur_edit_con');
+          // $('.cur_edit_con').closest('.art-section').addClass('padding_none');
+          // $('.cur_edit_con').after($('.art_section_edit'));
+          // // 如果当前修改的是art-section
+          // if ($('.cur_edit_con').hasClass('art-section')) {
+          //   $('.cur_edit_con').css('margin-bottom', '0');
+          //   $('.art_section_edit').css('margin-bottom', '30px');
+          // }
+          // scrollToEl();
+        })
+    }
+    // 是否显示文章摘要
+    function checkArticleDes() {
+      article_des
+        ?
+        $('.article_title_des').text(article_des) :
+        $('.article_title_des').text(article_title)
+    }
+    // 修改
+    function editEdit(event) {
+      editTextStatus = 3
+      var curContent = $('.cur_edit_con').html()
+      $('#summernote').summernote('code', curContent)
+      $('#edit_text').popup()
+      event.stopPropagation()
+    }
+    // 加文字
+    function editAddText(event) {
+      editTextStatus = 2
+      $('#edit_text').popup()
+      event.stopPropagation()
+    }
+    // 顶部加文字
+    function editAddTopText(event) {
+      editTextStatus = 1
+      $('#edit_text').popup()
+      event.stopPropagation()
+    }
+    // 加图片
+    function editAddImg(event) {
+      wx.chooseImage({
+        count: 1,
+        sizeType: ['compressed'],
+        success: function (res) {
+          if (!res.localIds) {
+            return
+          }
+          var localIds = res.localIds.toString()
+          // alert(localIds)
+          uploadImg(localIds)
+        },
+      })
+      event.stopPropagation()
+    }
+    // 加视频
+    function editAddVideo(event) {
+      $('#video-modal').show()
+      stopBodyScroll(true)
+      event.stopPropagation()
+    }
+    // 加产品
+    function editAddPro() {
+      if ($('.pro_content_inner').html() == '') {
+        $.toast('暂无产品信息', 'text')
+        return
+      }
+      $('#pro_wrap').popup()
+      stopBodyScroll(true)
+    }
+    //视频分享教程
+    function tutorialshow() {
+      $('#tutorials-modal').show()
+      stopBodyScroll(true)
+    }
+
+    function tutorialsHide() {
+      $('#tutorials-modal').hide()
+      stopBodyScroll(false)
+    }
+    // 关闭产品弹框
+    function closeProModal() {
+      $.closePopup()
+      // 释放body滚动
+      stopBodyScroll(false)
+    }
+    // 关闭视频弹框
+    function videoClose() {
+      $('.copy-text').val('')
+      $('#video-modal').hide()
+      stopBodyScroll(false)
+    }
+    // 顶部加图片
+    function addTopImg(event) {
+      isAddTop = true
+      editAddImg(event)
+      event.stopPropagation()
+    }
+    // 顶部加视频
+    function addTopVideo(event) {
+      isAddTop = true
+      editAddVideo(event)
+      event.stopPropagation()
+    }
+    // 顶部加产品
+    function addTopPro() {
+      isAddTop = true
+      editAddPro(true)
+    }
+    // 获取险种
+    function getInsureList(companyId, pageIndex) {
+      $('.pro_wrapper .weui-loadmore').show()
+      $.ajax({
+        url: '/index.php/Index/tthk/getProducts',
+        type: 'post',
+        data: {
+          companyId: companyId,
+          pageIndex: pageIndex
+        },
+        dataType: 'json',
+        success: function (res) {
+          // 获取产品列表
+          var proList = res.list
+          var _html = ''
+          loading = false
+          if (res.code == 2) {
+            $('.pro_wrapper .weui-loadmore').hide()
+            $('.no_more').show()
+            return
+          }
+          for (var i = 0; i < proList.length; i++) {
+            var features = '' // 产品描述
+            if (proList[i].features) {
+              proList[i].features = proList[i].features
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&amp;/g, '&')
+                .replace(/&quot;/g, '"')
+                .replace(/&apos;/g, "'")
+              features = proList[i].features
+            } else {
+              features = '专注保险保障本质，为您量身定制专属险种。'
+            }
+            _html +=
+              '<div class="pro_list_con clear" data-risk_id="' +
+              proList[i].product_id +
+              '" data-link="/index.php/Index/Ad/productDetail/product_id/' +
+              proList[i].product_id +
+              '/uid/' +
+              uid +
+              '" data-risk_title="' +
+              proList[i].product_name +
+              '" data-risk_cover="' +
+              proList[i].product_thumb_img_url +
+              '" data-features_info="' +
+              features +
+              '">' +
+              '<img src="' +
+              proList[i].product_thumb_img_url +
+              '" alt="产品图">' +
+              '<div class="pro_list_info">' +
+              '<p class="pro_list_title">' +
+              proList[i].product_name +
+              '</p>' +
+              '<p class="pro_list_des">' +
+              features +
+              '</p>' +
+              '</div>' +
+              '</div>'
+          }
+          $('.pro_content_inner').append(_html)
+          if ($('.pro_content_inner').html() != '') {
+            $('.add_pro_btn').removeClass('hidden')
+          } else {
+            $('.add_pro_btn').addClass('hidden')
+          }
+          // 插入产品  为产品添加点击事件
+          insertPro()
+          $('.pro_wrapper .weui-loadmore').hide()
+        },
+      })
+    }
+    // 插入产品
+    function insertPro() {
+      $('.pro_content_inner .pro_list_con').on('click', function (e) {
+        e.stopPropagation()
+        var risk_id = $(this).data('risk_id')
+        var risk_detail_link = $(this).data('link')
+        var risk_cover = $(this).data('risk_cover')
+        var risk_title = $(this).data('risk_title')
+        var risk_features = $(this).data('features_info')
+        var _html = ''
+        _html +=
+          '<div class="art-section-new product-section" style="padding-bottom:46px;">'
+        _html +=
+          '<a href="javascript:void(0);" data-href="' +
+          risk_detail_link +
+          '">'
+        _html += '<div class="product-info">'
+        _html += '<img src="' + risk_cover + '" />'
+        _html += '<h3>' + risk_title + '</h3>'
+        if (risk_features) {
+          _html += '<div class="cont">' + risk_features + '</div>'
+        } else {
+          _html +=
+            '<div class="cont">专注保险保障本质，为您量身定制专属险种。</div>'
+        }
+        _html += '</div>'
+        _html += '<div class="hr scale-half product-brd-line hidden"></div>'
+        _html += '<div class="consult-column hidden">'
+        _html += '<img src="' + avatar_url + '" />'
+        _html += '<i>' + nickname.substring(0, 6) + '</i>'
+        _html += '<span>咨询我>></span>'
+        _html += '</div>'
+        _html += '</a>'
+        _html += '</div>'
+        if (isAddTop) {
+          $('.art-content').prepend(_html)
+        } else {
+          if ($('.cur_edit_con').closest('.art-section').length) {
+            // 旧版之前文章的div
+            $('.cur_edit_con')
+              .closest('.art-section')
+              .addClass('cur_art_section')
+            $('.cur_art_section').next().hasClass('art_section_edit') ?
+              $('.art_section_edit').after(_html) :
+              $('.cur_art_section').after(_html)
+          } else {
+            $('.art_section_edit').after(_html)
+          }
+          // else if ($('.cur_edit_con').closest('.art-section-new').length) {
+          //   // 新版新加的段落，图片，产品都会是art-section-new的类
+          //   $('.cur_edit_con').closest('.art-section-new').addClass('cur_art_section');
+          //   $('.cur_art_section').next().hasClass('art_section_edit') ? $('.art_section_edit').after(_html) : $('.cur_art_section').after(_html);
+          // } else if ($('.cur_edit_con').closest('._135editor').length) {
+          //   // 这个是135编辑器的类
+          //   $('.cur_edit_con').closest('._135editor').addClass('cur_art_section');
+          //   $('.cur_art_section').next().hasClass('art_section_edit') ? $('.art_section_edit').after(_html) : $('.cur_art_section').after(_html);
+          // } else if ($('.cur_edit_con').closest('.other-section').length) {
+          //   // 其他文章的情况
+          //   $('.cur_edit_con').closest('.other-section').addClass('cur_art_section');
+          //   $('.cur_art_section').next().hasClass('art_section_edit') ? $('.art_section_edit').after(_html) : $('.cur_art_section').after(_html);
+          // }
+        }
+        $.toast('插入成功', 'text')
+        // 重置数据
+        isAddTop = false
+        $('.edit_add_con_wrap').addClass('hidden')
+        // articleEventListener();
+        $.closePopup()
+        // 释放
+        stopBodyScroll(false)
+      })
+    }
+
+    function uploadImg(ids) {
+      wx.uploadImage({
+        localId: ids,
+        success: function (res) {
+          $.ajax({
+            type: 'POST',
+            url: '/index.php/index/tthk/uploadQiniu',
+            data: {
+              article_pic: res.serverId
+            },
+            dataType: 'json',
+            success: function (res) {
+              // alert(res.url)
+              var _html = ''
+              _html +=
+                '<div class="art-section-new"><img src="' +
+                res.url +
+                '"/></div>'
+              if (isAddTop) {
+                $('.art-content').prepend(_html)
+              } else {
+                if ($('.cur_edit_con').closest('.art-section').length) {
+                  // 旧版之前文章的div
+                  $('.cur_edit_con')
+                    .closest('.art-section')
+                    .addClass('cur_art_section')
+                  $('.cur_art_section').next().hasClass('art_section_edit') ?
+                    $('.art_section_edit').after(_html) :
+                    $('.cur_art_section').after(_html)
+                } else {
+                  $('.art_section_edit').after(_html)
+                }
+                // else if ($('.cur_edit_con').closest('.art-section-new').length) {
+                //   // 新版新加的段落，图片，产品都会是art-section-new的类
+                //   $('.cur_edit_con').closest('.art-section-new').addClass('cur_art_section');
+                //   $('.cur_art_section').next().hasClass('art_section_edit') ? $('.art_section_edit').after(_html) : $('.cur_art_section').after(_html);
+                // } else if ($('.cur_edit_con').closest('._135editor').length) {
+                //   // 这个是135编辑器的类
+                //   $('.art_section_edit').after(_html)
+                // } else if ($('.cur_edit_con').closest('.other-section').length) {
+                //   // 其他文章的情况
+                //   $('.cur_edit_con').closest('.other-section').addClass('cur_art_section');
+                //   $('.cur_art_section').next().hasClass('art_section_edit') ? $('.art_section_edit').after(_html) : $('.cur_art_section').after(_html);
+                // }
+              }
+              // 重置
+              isAddTop = false
+              // articleEventListener();
+              $.toast('上传成功', 'text')
+            },
+          })
+        },
+      })
+    }
+    //复制视频
+    function copyVideo() {
+      const v = $('.copy-text').val().trim()
+      if (v === '') {
+        $.toast('请输入链接', 'text')
+        return false
+      }
+
+      $.ajax({
+        type: 'POST',
+        url: '/index.php/index/videoMedia/longVideoUrlToShort',
+        data: {
+          url: encodeURIComponent(v)
+        },
+        dataType: 'json',
+        success: function (res) {
+          console.log(res)
+          if (res.error_code === 0) {
+            // alert(res.url)
+            videoClose()
+            var _html = ''
+            _html +=
+              '<div class="art-section __video_wrap">' +
+              '<iframe frameBorder="0" allowFullScreen="true" height="240px" width="100%" src=' + res.data +
+              ' data-src=' + res.data + '></iframe>' +
+              '<p style="width: 100%;z-index: 8; " class="video-tp">编辑视频点击此处</p>' +
+              '</div>'
+            if (isAddTop) {
+              $('.art-content').prepend(_html)
+            } else {
+              if ($('.cur_edit_con').closest('.art-section').length) {
+                console.log(4444)
+                // 旧版之前文章的div
+                $('.cur_edit_con')
+                  .closest('.art-section')
+                  .addClass('cur_art_section')
+                $('.cur_art_section').next().hasClass('art_section_edit') ?
+                  $('.art_section_edit').after(_html) :
+                  $('.cur_art_section').after(_html)
+              } else {
+                console.log(55555)
+                $('.art_section_edit').after(_html)
+              }
+            }
+            // 重置
+            isAddTop = false
+          } else {
+            $.toast(res.error_message, 'text')
+          }
+        },
+      })
+    }
+    // 删除原素
+    function deleteEl(event) {
+      del_num += 1
+      revoke_arr.push('revoke_' + del_num)
+      $('.cur_edit_con').addClass('hidden revoke_' + del_num)
+      $('.cur_edit_con').closest('.art-section').removeClass('padding_none')
+      $('.cur_edit_con').removeClass('cur_edit_con')
+      $('.art_section_edit').addClass('hidden')
+      event.stopPropagation()
+    }
+    // 撤销删除
+    function cancelDelete() {
+      var revoke_len = revoke_arr.length
+      if (revoke_arr.length == 0) {
+        $.toast('无撤销内容', 'text')
+        return
+      }
+      revoke_arr.pop()
+      del_num = revoke_len - 1
+      if ($('.revoke_' + revoke_len).hasClass('art-section')) {
+        $('.revoke_' + revoke_len).css('margin-bottom', '30px')
+      }
+      $('.revoke_' + revoke_len).removeClass('hidden revoke_' + revoke_len)
+      // $.toast('撤销成功', 'text');
+    }
+    // 滚动到指定位置
+    function scrollToEl(id) {
+      var __total =
+        $('.cur_edit_con').offset().top +
+        $('.cur_edit_con').height() +
+        $('.art_section_edit').height()
+      var __height =
+        $(window).scrollTop() + $(window).height() - $('.footer').height()
+      if (__total < __height) {
+        return
+      }
+      $('html, body').animate({
+          scrollTop: $(window).scrollTop() + __total - __height + 30,
+        },
+        200
+      )
+    }
+    // 禁止body滚动
+    function stopBodyScroll(isFixed) {
+      if (isFixed) {
+        $('body, html').css({
+          overflow: 'hidden',
+        })
+      } else {
+        $('body, html').css({
+          overflow: 'auto',
+        })
+      }
+    }
+    // 监听页面返回
+    // function pushHistory() {
+    //   let state = {
+    //     title: article_title,
+    //     url: window.location.href
+    //   };
+    //   window.history.pushState(state, state.title, state.url);
+    // }
+    // function windowListener() {
+    //   $.modal({
+    //     title: "",
+    //     text: "您正在编辑中,退出关闭前请先存为草稿",
+    //     buttons: [
+    //       {
+    //         text: "直接退出", onClick: function () {
+    //           window.history.back();
+    //         }
+    //       },
+    //       { text: "取消", className: 'default', onClick: function () { pushHistory() } },
+    //     ]
+    //   });
+    // }
+
+    // 编辑操作框方法  obj: jquery对象
+    function enditModla(obj) {
+      console.log(obj)
+      // 删除占位元素
+      $('._holder').remove()
+      $('.art_section_edit').removeClass('hidden')
+      // $('.edit_add_con_wrap').hide();
+      $('.art-section').css('margin-bottom', '30px')
+      $('.cur_edit_con').closest('.art-section').removeClass('padding_none')
+      $('.cur_edit_con').removeClass('cur_edit_con')
+      $('.art-content')
+        .find('.cur_art_section')
+        .removeClass('cur_art_section')
+      obj.addClass('cur_edit_con')
+      $('.cur_edit_con').closest('.art-section').addClass('padding_none')
+      $('.cur_edit_con').after($('.art_section_edit'))
+      // 如果当前修改的是art-section
+      if ($('.cur_edit_con').hasClass('art-section')) {
+        $('.cur_edit_con').css('margin-bottom', '0')
+        $('.art_section_edit').css('margin-bottom', '30px')
+      }
+      scrollToEl()
+    }
+  </script>
+  <div style="display: none">
+    <!-- <script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1277638470&web_id=1277638470"></script> -->
+    <script type="text/javascript">
+      ;
+      (function () {
+        function lazy() {
+          var s = document.createElement('script')
+          s.type = 'text/javascript'
+          s.src =
+            'https://s23.cnzz.com/z_stat.php?id=1277638470&web_id=1277638470'
+          document.body.appendChild(s)
+        }
+        window.addEventListener('load', lazy, false)
+      })()
+    </script>
+  </div>
+
+  <div class="note-popover popover in note-link-popover bottom" style="display: none;">
+    <div class="arrow"></div>
+    <div class="popover-content note-children-container"><span><a target="_blank"></a>&nbsp;</span>
+      <div class="note-btn-group btn-group note-link"><button type="button" class="note-btn btn btn-default btn-sm"
+          role="button" tabindex="-1" title="" aria-label="Edit" data-original-title="Edit"><i
+            class="note-icon-link"></i></button><button type="button" class="note-btn btn btn-default btn-sm"
+          role="button" tabindex="-1" title="" aria-label="Unlink" data-original-title="Unlink"><i
+            class="note-icon-chain-broken"></i></button></div>
+    </div>
+  </div>
+  <div class="note-popover popover in note-image-popover bottom" style="display: none;">
+    <div class="arrow"></div>
+    <div class="popover-content note-children-container">
+      <div class="note-btn-group btn-group note-imagesize"><button type="button" class="note-btn btn btn-default btn-sm"
+          role="button" tabindex="-1" title="" aria-label="Resize Full" data-original-title="Resize Full"><span
+            class="note-fontsize-10">100%</span></button><button type="button" class="note-btn btn btn-default btn-sm"
+          role="button" tabindex="-1" title="" aria-label="Resize Half" data-original-title="Resize Half"><span
+            class="note-fontsize-10">50%</span></button><button type="button" class="note-btn btn btn-default btn-sm"
+          role="button" tabindex="-1" title="" aria-label="Resize Quarter" data-original-title="Resize Quarter"><span
+            class="note-fontsize-10">25%</span></button></div>
+      <div class="note-btn-group btn-group note-float"><button type="button" class="note-btn btn btn-default btn-sm"
+          role="button" tabindex="-1" title="" aria-label="Float Left" data-original-title="Float Left"><i
+            class="note-icon-align-left"></i></button><button type="button" class="note-btn btn btn-default btn-sm"
+          role="button" tabindex="-1" title="" aria-label="Float Right" data-original-title="Float Right"><i
+            class="note-icon-align-right"></i></button><button type="button" class="note-btn btn btn-default btn-sm"
+          role="button" tabindex="-1" title="" aria-label="Float None" data-original-title="Float None"><i
+            class="note-icon-align-justify"></i></button></div>
+      <div class="note-btn-group btn-group note-remove"><button type="button" class="note-btn btn btn-default btn-sm"
+          role="button" tabindex="-1" title="" aria-label="Remove Image" data-original-title="Remove Image"><i
+            class="note-icon-trash"></i></button></div>
+    </div>
+  </div>
+  <div class="note-popover popover in note-table-popover bottom" style="display: none;">
+    <div class="arrow"></div>
+    <div class="popover-content note-children-container">
+      <div class="note-btn-group btn-group note-add"><button type="button"
+          class="note-btn btn btn-default btn-sm btn-md" role="button" tabindex="-1" title="" aria-label="Add row below"
+          data-original-title="Add row below"><i class="note-icon-row-below"></i></button><button type="button"
+          class="note-btn btn btn-default btn-sm btn-md" role="button" tabindex="-1" title="" aria-label="Add row above"
+          data-original-title="Add row above"><i class="note-icon-row-above"></i></button><button type="button"
+          class="note-btn btn btn-default btn-sm btn-md" role="button" tabindex="-1" title=""
+          aria-label="Add column left" data-original-title="Add column left"><i
+            class="note-icon-col-before"></i></button><button type="button"
+          class="note-btn btn btn-default btn-sm btn-md" role="button" tabindex="-1" title=""
+          aria-label="Add column right" data-original-title="Add column right"><i
+            class="note-icon-col-after"></i></button></div>
+      <div class="note-btn-group btn-group note-delete"><button type="button"
+          class="note-btn btn btn-default btn-sm btn-md" role="button" tabindex="-1" title="" aria-label="Delete row"
+          data-original-title="Delete row"><i class="note-icon-row-remove"></i></button><button type="button"
+          class="note-btn btn btn-default btn-sm btn-md" role="button" tabindex="-1" title="" aria-label="Delete column"
+          data-original-title="Delete column"><i class="note-icon-col-remove"></i></button><button type="button"
+          class="note-btn btn btn-default btn-sm btn-md" role="button" tabindex="-1" title="" aria-label="Delete table"
+          data-original-title="Delete table"><i class="note-icon-trash"></i></button></div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1277638470&amp;web_id=1277638470"></script>
+</body>
+
+</html>

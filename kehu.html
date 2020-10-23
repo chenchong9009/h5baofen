@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>客户</title>
+    <link href="css/content.css" rel="stylesheet">
+
+    <script src="js/m_jx.js"></script>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div  class="font_Light">
+       <div class="kehu">
+           <h5 class="h5_kehu"><image src="images/kehuimg.png" class="w100" /></h5>
+           <h4>引流吸粉神奇</h4>
+           <p class="p1">海量推广素材，一键分享</p>
+           <p class="p1">谁看了你的文章，视频，随时汇报</p>
+           <div class="quanxian_btn1">
+               <p>立即推广引流</p>
+           </div>
+       </div>
+
+    </div>
+
+    <!-- 底部导航 -->
+    <div class="fixed_footer">
+        <div class="flex flex-align-center flex-pack-center">
+            <a class="flex flex-1" href="index.html">
+                <h4 >首页</h4>
+            </a>
+            <a class="flex flex-1 " href="renmai.html">
+                <h4>人脉</h4>
+            </a>
+            <a class="flex flex-1 " href="kehu.html">
+
+                <h4 class="active">客户</h4>
+            </a>
+            <a class="flex flex-1 " href="wode.html">
+
+                <h4>我的</h4>
+            </a>
+        </div>
+    </div>
+</body>
+<script>
+    // -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.5);
+    $(window).on('scroll', function () {
+        $(".index_top").css({
+            'box-shadow': '0 3px 14px rgba(0,0,0,.3)'
+        })
+        if ($(this).scrollTop() == 0) {
+            $(".index_top").css({
+                'box-shadow': 'none'
+            })
+        }
+    })
+</script>
+
+</html>

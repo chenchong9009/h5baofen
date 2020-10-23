@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>查看广告列表</title>
+
+    <link rel="stylesheet" href="dist/css/layui.css" media="all">
+    <link href="css/content.css" rel="stylesheet">
+    <script src="js/m_jx.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="dist/layui.js"></script>
+
+</head>
+
+<body style=" background:#f7f7f7">
+
+    <div class="" >
+        <div class="marginB20 gg_linkxq1">
+            <div class="gg_link_top1 flex">
+                <div class=" flex flex-v flex-pack-center flex-align-center">
+                    <img src="images/pic_x3.jpg" class="sc_img2">
+                </div>
+                <div class="flex flex-1 flex-v">
+                    <div class="flex marginB10">
+                        <p class="font30 color_66">京东芬芳</p>
+                    </div>
+                    <div class="flex  marginB10">
+                        <p class="font30 color_66 ">邀请码</p>
+                    </div>
+                    <div class=" flex flex-pack-justify marginT10">
+                        <div class="flex fuzhi_info ">
+                            <p class="font30 color_33 djyqmxz" id="djyqmxz"><input type="text" value="邀请码内容" name=""
+                                    id=""></p>
+                        </div>
+                        <div class="go_info button">
+                            复制
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-align-center li_zong">
+                <a href="kehu_xq.html" class="flex flex-align-center flex-1 font30 color_33">被点击<span
+                        class="font32 color_h">0</span> 次> </a>
+                <div class="flex flex-align-center">
+                    <div class="li flex flex-align-center flex-pack-center shanchu">
+                        <div class="font28 color_33">删除</div>
+                    </div>
+                    <a href="gg_linajiexq_sp.html" class="li flex flex-align-center flex-pack-center">
+                        <div class="font28 color_33 ">修改</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- jieshulist -->
+        <div class="marginB20 gg_linkxq1">
+            <div class="gg_link_top1 flex">
+                <div class=" flex flex-v flex-pack-center flex-align-center">
+                    <img src="images/pic_x3.jpg" class="sc_img2">
+                </div>
+                <div class="flex flex-1 flex-v">
+                    <div class="flex marginB10">
+                        <p class="font30 color_66">京东芬芳</p>
+                    </div>
+                    <div class="flex  marginB10">
+                        <p class="font30 color_66 ">邀请码</p>
+                    </div>
+                    <div class=" flex flex-pack-justify marginT10">
+                        <div class="flex fuzhi_info ">
+                            <p class="font30 color_33 djyqmxz" id="djyqmxz"><input type="text" value="邀请码内容" name=""
+                                    id=""></p>
+                        </div>
+                        <div class="go_info button">
+                            复制
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-align-center li_zong">
+                <a href="kehu_xq.html" class="flex flex-align-center flex-1 font30 color_33">被点击<span
+                        class="font32 color_h">0</span> 次> </a>
+                <div class="flex flex-align-center">
+                    <div class="li flex flex-align-center flex-pack-center shanchu">
+                        <div class="font28 color_33">删除</div>
+                    </div>
+                    <a href="gg_linajiexq_sp.html" class="li flex flex-align-center flex-pack-center">
+                        <div class="font28 color_33 ">修改</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="submit2 flex flex-pack-center">
+            <a href="gg_linajiexq.html" class="flex flex-align-center"><span class="font34">+</span> 新增友情码广告</a >
+        </div>
+
+    </div>
+
+
+</body>
+<script>
+    $(document).ready(function () {
+        $(".shanchu").click(function () {
+            layui.use('layer', function () {
+                var layer = layui.layer;
+
+                layer.confirm('确认要删除吗', {
+                    btn: ['删除', '取消'] //可以无限个按钮
+                }, function (index, layero) {
+                    //按钮【按钮一】的回调
+                    console.log("删除")
+                    layer.close(index)
+                }, function (index) {
+                    //按钮【按钮二】的回调
+                    console.log("取消")
+                    layer.close(index)
+                });
+            });
+        })
+
+
+        $("#djyqmxz input").select(function () {
+            $("#djyqmxz input").after();
+        });
+        $(".button").click(function () {
+            $("#djyqmxz input").select();
+            document.execCommand("Copy");
+            layui.use('layer', function () {
+                var layer = layui.layer;
+
+                layer.msg('复制成功，直接粘贴');
+            });
+
+
+        });
+
+
+    })
+</script>
+
+
+</html>

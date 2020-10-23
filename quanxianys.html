@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>权限隐身</title>
+    <link href="css/content.css" rel="stylesheet">
+
+    <script src="js/m_jx.js"></script>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="renmai2" class="font_Light">
+        <div class="remai_top flex flex-v">
+            <div class="flex flex-pack-justify flex-align-center font32 color_99 remai_top_main">
+                <a  href="renmai.html">人脉广场</a>
+                <a  href="woderm.html">我的人脉</a>
+                <a class="active" href="quanxianys.html">权限隐身</a>
+            </div>
+           
+        </div>
+
+        <div class="remai_list">
+            <div class="remai_list_1 flex">
+                <div class="flex flex-1">
+                     <h5 class="h5_touxiang"><image src="images/touxiang.png" class="w100" /></h5>
+                     <div class="flex flex-v  flex-1  flex-wrap font28 color_99 renmai_line">
+                         <h5 class="font30 color_66 overhidden width570">狠辣的肯定就开个健康</h5>
+                         <p>手机： <span>17330022565</span></p>
+                         <p>微信： <span>太阳花儿</span></p>
+                         <p>地区： <span>中国 青海 西宁</span></p>
+                         <p>行业： <span>养生健康，微商</span></p>
+                         <p>品牌： <span>中国大陆</span></p>
+                     </div>
+                </div>
+                <div class="flex tianjia3">
+                    <p class="font30 color_bai">修改</p>
+                </div>
+            </div>
+            <div class="flex  color_33 flex-align-center yinshen_info">
+                <div class="flex flex-1">
+                    <h5 class="font32">我的状态： 已显示</h5>
+                </div>
+                <div class="yinshen_anniu">
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <div class="slider round"></div>
+                      </label>
+                </div>
+            </div>
+
+            <div class="flex flex-v color_33  yinshen_info1  font30 color_66">
+                <h5 class="font32 color_33">我是免费用户，我的人脉权限：</h5>
+                <p>申请添加: <span>0</span> 次/天</p>
+                <p>被添加: <span>6</span> 次/天</p>
+                <p>通过申请: <span>5</span> 次/天</p>
+            </div>
+
+            <div class="quanxian_btn">
+                <p>升级我的人脉权限</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 底部导航 -->
+    <div class="fixed_footer">
+        <div class="flex flex-align-center flex-pack-center">
+            <a class="flex flex-1" href="index.html">
+                <h4 >首页</h4>
+            </a>
+            <a class="flex flex-1 " href="renmai.html">
+                <h4 class="active">人脉</h4>
+            </a>
+            <a class="flex flex-1 " href="kehu.html">
+
+                <h4>客户</h4>
+            </a>
+            <a class="flex flex-1 " href="wode.html">
+
+                <h4>我的</h4>
+            </a>
+        </div>
+    </div>
+</body>
+<script>
+    // -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.5);
+    $(window).on('scroll', function () {
+        $(".index_top").css({
+            'box-shadow': '0 3px 14px rgba(0,0,0,.3)'
+        })
+        if ($(this).scrollTop() == 0) {
+            $(".index_top").css({
+                'box-shadow': 'none'
+            })
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>今日数据详情</title>
+    <link rel="stylesheet" href="dist/css/layui.css" media="all">
+    <link href="css/content.css" rel="stylesheet">
+
+    <script src="js/m_jx.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="dist/layui.js"></script>
+</head>
+
+<body class="bg1">
+    <div class="kh_cont kh_cont01">
+        <div class="kh_cont_date flex flex-pack-center">
+            <div class="layui-inline">
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="test1" value="" placeholder="输入日期">
+                </div>
+            </div>
+        </div>
+        <div class="kh_cont_top kh_cont_top1">
+            <div class="kh_cont_top_info flex flex-pack-justify flex-align-center">
+                <a class="flex flex-v flex-align-center">
+                    <h5 class="info_img1 marginB10">
+                        <image src="images/fenxiang.png" class="w100" />
+                    </h5>
+                    <p class="font30 color_99 marginB10">分享次数</p>
+                    <h4 class="font34 color_33 marginB10">2</h4>
+                </a>
+                <a class="flex flex-v flex-align-center">
+                    <h5 class="info_img1 marginB10">
+                        <image src="images/cishu.png" class="w100" />
+                    </h5>
+                    <p class="font30 color_99 marginB10">看我次数</p>
+                    <h4 class="font34 color_33 marginB10">2</h4>
+                </a>
+                <a class="flex flex-v flex-align-center">
+                    <h5 class=" info_img1  marginB10">
+                        <image src="images/renshu.png" class="w100" />
+                    </h5>
+                    <p class="font30 color_99 marginB10">看我人数</p>
+                    <h4 class="font34 color_33 marginB10">?</h4>
+                </a>
+            </div>
+            <div class="sjxq_list pr">
+                <div class="sj_list_1 active pa">
+                    <div class="flex flex-pack-justify liaotian lt01">
+                        <div class="flex flex-v flex-pack-center flex-align-center">
+                            <p class="font30 color_66 marginB20">聊天/群聊</p>
+                            <h5 class="font40 color_33">0</h5>
+                        </div>
+                        <div class="flex flex-v flex-pack-center flex-align-center">
+                            <p class="font30 color_66 marginB20">朋友圈</p>
+                            <h5 class="font40 color_33">0</h5>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="sj_list_1  pa">
+                    <div class="flex flex-pack-justify liaotian lt02">
+                        <div class="flex flex-v flex-pack-center flex-align-center">
+                            <p class="font30 color_66 marginB20">聊天</p>
+                            <h5 class="font40 color_33">0</h5>
+                        </div>
+                        <div class="flex flex-v flex-pack-center flex-align-center">
+                            <p class="font30 color_66 marginB20">群聊</p>
+                            <h5 class="font40 color_33">0</h5>
+                        </div>
+                        <div class="flex flex-v flex-pack-center flex-align-center">
+                            <p class="font30 color_66 marginB20">朋友圈</p>
+                            <h5 class="font40 color_33">0</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="sj_list_1  pa ">
+                    <div class="flex flex-pack-justify liaotian lt03">
+                        <div class="flex flex-v flex-pack-center flex-align-center">
+                            <p class="font30 color_66 marginB20">聊天</p>
+                            <h5 class="font40 color_33">?</h5>
+                        </div>
+                        <div class="flex flex-v flex-pack-center flex-align-center">
+                            <p class="font30 color_66 marginB20">群聊</p>
+                            <h5 class="font40 color_33">?</h5>
+                        </div>
+                        <div class="flex flex-v flex-pack-center flex-align-center">
+                            <p class="font30 color_66 marginB20">朋友圈</p>
+                            <h5 class="font40 color_33">?</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="marginT20 drfx">
+            <div class="flex flex-pack-justify padding20  clickBtn">
+                <h5 class="font30 color_33 fenx">当日分享</h5>
+            </div>
+     <!-- <div class="flex flex-pack-justify padding20 border_b clickBtn">
+                <h5 class="font30 color_33 fenx">当日分享</h5>
+                <div class=" color_lan font30 lianjie flex flex-align-center shuoming button1">
+                   <h5 class="wenhao"><image src="images/wenhao.png" class="w100" /></h5>
+                   <p class="color_lan1">说明</p> 
+                </div>
+            </div> -->
+            <!-- <div class="fenx_bott">
+                <h5 class="fenx_img01">
+                    <image src="images/fenx01.png" class="w100" />
+                </h5>
+
+                <div class="fenx_info01 flex">
+                    <p class="font30 color_66 flex flex-pack-center textA_center"> " 坚持分享，让客户知道你还在认真经营，客户有需求时自然会想起你</p>
+                </div>
+            </div> -->
+            <div class="sjxq_showlist">
+                <div class="flex marginB20 border_b paddingT20">
+                    <h5 class="h5_sjxq_img "><image src="images/default_img.jpg" class="w100" /></h5>
+                    <div class="flex flex-v flex-1">
+                        <h4 class="font30 color_33 ">图片内容</h4>
+                        <p class="font28 color_66 marginT10">我们的饮食健康</p>
+                        <div  class=" flex  flex-pack-justify marginT10">
+                            <p class="font28 color_66">2020-10-19</p>
+                             <p class="font28 color_66">2020-10-19</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex marginB20 border_b paddingT20">
+                    <h5 class="h5_sjxq_img "><image src="images/default_img.jpg" class="w100" /></h5>
+                    <div class="flex flex-v flex-1">
+                        <h4 class="font30 color_33 ">图片内容</h4>
+                        <p class="font28 color_66 marginT10">我们的饮食健康</p>
+                        <div  class=" flex  flex-pack-justify marginT10">
+                            <p class="font28 color_66">2020-10-19</p>
+                             <p class="font28 color_66">2020-10-19</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex marginB20 border_b paddingT20">
+                    <h5 class="h5_sjxq_img "><image src="images/default_img.jpg" class="w100" /></h5>
+                    <div class="flex flex-v flex-1">
+                        <h4 class="font30 color_33 ">图片内容</h4>
+                        <p class="font28 color_66 marginT10">我们的饮食健康</p>
+                        <div  class=" flex  flex-pack-justify marginT10">
+                            <p class="font28 color_66">2020-10-19</p>
+                             <p class="font28 color_66">2020-10-19</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex marginB20 border_b paddingT20">
+                    <h5 class="h5_sjxq_img "><image src="images/default_img.jpg" class="w100" /></h5>
+                    <div class="flex flex-v flex-1">
+                        <h4 class="font30 color_33 ">图片内容</h4>
+                        <p class="font28 color_66 marginT10">我们的饮食健康</p>
+                        <div  class=" flex  flex-pack-justify marginT10">
+                            <p class="font28 color_66">2020-10-19</p>
+                             <p class="font28 color_66">2020-10-19</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="submit2 ">
+            <p class="">立即分享获客</p>
+        </div>
+
+    </div>
+    <div class="tan"></div>
+    <div class="willAlert">
+        <div class=" flex flex-align-center zong willAlert_1">
+            <div class="marginB20 marginT20 flex flex-1 flex-pack-center">
+                <h4>常见问题说明</h4>
+            </div>
+            <h5 class="h5_guan_img">
+                <image src="images/close_pro.png" class="w100" />
+            </h5>
+        </div>
+        <div class="tan_info_main ">
+            <div class="remai_list01 info01 active">
+                <div class="marginT20 gg_linkxq1 flex padding20">
+                    <div class="wen font35">问</div>
+                    <div class="flex flex-1 flex-v">
+                        <h4 class="font30 color_33 marginB20">本页统计数据的内容1</h4>
+                         <h5 class="font30 color_66">本人分享的文章，视频，早/晚安</h5>
+                    </div>
+                </div>
+
+                <div class="marginT20 gg_linkxq1 flex padding20">
+                    <div class="wen font35">问</div>
+                    <div class="flex flex-1 flex-v">
+                        <h4 class="font30 color_33 marginB20">本页统计数据的内容2</h4>
+                         <h5 class="font30 color_66">本人分享的文章，视频，早/晚安</h5>
+                    </div>
+                </div>
+
+                <div class="marginT20 gg_linkxq1 flex padding20">
+                    <div class="wen font35">问</div>
+                    <div class="flex flex-1 flex-v">
+                        <h4 class="font30 color_33 marginB20">本页统计数据的内容3</h4>
+                         <h5 class="font30 color_66">本人分享的文章，视频，早/晚安</h5>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+  
+</body>
+
+<script>
+    $(function () {
+
+        $(".clickBtn .button1").click(function () {
+            $('body').css({
+                'height': '100%',
+                'overflow': 'hidden',
+
+            });
+            $(".tan").css({
+                "display": 'block'
+            })
+            $('.willAlert').css({
+                'height': '80vh'
+            });
+        });
+
+        $(".tan").click(function () {
+            $(this).hide()
+            $(".willAlert").css({
+                'height': 0,
+                'transition': 'all 0.5s ease'
+            });
+            $(".willAlert1").css({
+                'height': 0,
+                'transition': 'all 0.5s ease'
+            });
+            // 此处如果需要可以用计时器（弹框关闭后，页面才能上下滑动）
+
+            $('body').css({
+                'height': 'auto',
+                'overflow': 'scroll'
+            });
+            // 消失时间
+
+        })
+
+        $(document).on('click', '.h5_guan_img', function () {
+            $(".tan").hide()
+            $('body').css({
+                'height': 'auto',
+                'overflow': 'scroll'
+            });
+            $(".willAlert").css({
+                'height': 0,
+                // 消失时间
+                'transition': 'all 0.5s ease'
+            });
+            $(".willAlert1").css({
+                'height': 0,
+                // 消失时间
+                'transition': 'all 0.5s ease'
+            });
+            // 此处如果需要可以用计时器（弹框关闭后，页面才能上下滑动）
+            setTimeout(function () {
+                $('body').css({
+                    'height': 'auto',
+                    'overflow': 'visible'
+                });
+                // 消失时间
+            }, 10000);
+        });
+
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+
+            //常规用法
+            laydate.render({
+                elem: '#test1'
+            });
+        });
+            //xuanxiangka
+        $(".kh_cont_top1 .kh_cont_top_info a").click(function () {
+            //获取点击的元素给其添加样式，讲其兄弟元素的样式移除
+            $(this).addClass("active").siblings().removeClass("active");
+            //获取选中元素的下标
+            var index = $(this).index();
+            $(this).parents(".kh_cont_top_info").siblings().find(".sj_list_1").eq(index).addClass("active")
+                .siblings().removeClass("active");
+        })
+
+        $(".top2_left_ul li").click(function () {
+            $(".top2_left_ul li").removeClass("active")
+            $(this).addClass("active")
+        })
+
+        $(".jiazai").click(function () {
+            console.log('jiazaile')
+        })
+    })
+</script>
+
+</html>

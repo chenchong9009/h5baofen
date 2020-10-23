@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>链接广告详情</title>
+
+    <link rel="stylesheet" href="dist/css/layui.css" media="all">
+    <link href="css/content.css" rel="stylesheet">
+    <script src="js/m_jx.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="dist/layui.js"></script>
+</head>
+
+<body style=" background:#f7f7f7">
+
+    <div class="gg_linkxq" class="font_Light">
+        <div class="gg_link_top flex">
+            <div class="flex flex-align-center">
+                <div class="layui-upload layui-upload-info">
+                    <button type="button" class="layui-btn2 flex flex-v flex-pack-center flex-align-center" id="test1">
+                        <img src="images/xc.png" class="sc_img" >
+                        <p class="font26 color_66">点击上传封面</p>
+                    </button>
+                    <div class="layui-upload-list">
+                        <img class="layui-upload-img" id="demo1" >
+                        <p id="demoText"></p>
+                    </div>
+                </div>   
+            </div>
+           <div class="flex flex-1 flex-v">
+                <div class="flex ffxq_tit">
+                    <p class="font30 color_99 djggtit">填写广告标题</p>
+                </div>
+                <div class="flex flex-pack-end  ggxq_btn"><p class="djggcha">点击查看</p></div>
+           </div>
+        </div>
+
+        <div class="gg_link_center flex flex-v">
+            <h5 class="font30 color_33 marginB20"><span class="color_h">*</span> 点击广告后跳转的页面链接</h5>
+             <div class="flex ffxq_tit2">
+                 <input class="gg_input flex flex-1" type="text" name="" placeholder="请填写或复制粘贴您的链接" id="">
+             </div>
+        </div>
+
+
+        <div class="submit2">
+            <p>保存</p>
+        </div>
+
+    </div>
+  <div class="tantit">
+    <div class="gg_linkxq" class="font_Light">
+      <div class="EditModel flex flex-v">
+        <div class="EditModel-title flex flex-pack-justify flex-align-center">
+          <p  class="EditModel-title-p1 font30 color_66 quxiao" >取消</p>
+          <h4 class="EditModel-title-p2 font34 color_33">广告标题</h4>
+          <p class="EditModel-title-p3 theme-btn">确定</p>
+        </div>
+        <div class="EditModel-content flex flex-align-center flex-pack-justify">
+          <input type="text" class="EditModel-input" class="flex " placeholder="最多20个字，好的广告标题点击率更高哦">
+        </div>
+        <div class="flex flex-pack-center font30 color_66 marginT20">
+          例：免费领取新人福利
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  <div class="tancha">
+      <div class="gg_linkxq" class="font_Light">
+        <div class="EditModel flex flex-v">
+          <div class="EditModel-title flex flex-pack-justify flex-align-center">
+            <p  class="EditModel-title-p1 font30 color_66 quxiao" >取消</p>
+            <h4 class="EditModel-title-p2 font34 color_33">按钮文字</h4>
+            <p class="EditModel-title-p3 theme-btn">确定</p>
+          </div>
+          <div class="EditModel-content flex flex-align-center flex-pack-justify">
+              <input type="text" class="EditModel-input" class="flex " placeholder="请填写按钮文字">
+              <img  class="EditModel-content-img" src="images/guan.png" alt="删除">
+          </div>
+        </div>
+    </div>
+  </div>
+   
+</body>
+
+<script>
+
+    $(".djggtit").click(function(){
+       $(".tantit").show()
+    })
+
+    $(".djggcha").click(function(){
+      $(".tancha").show()
+    })
+
+    $(".quxiao").click(function(){
+      $(".tantit").hide()
+      $(".tancha").hide()
+    })
+
+    layui.use('upload', function(){
+      var $ = layui.jquery
+      ,upload = layui.upload;
+      
+      //普通图片上传
+      var uploadInst = upload.render({
+        elem: '#test1'
+        ,url: 'https://httpbin.org/post' //改成您自己的上传接口
+        ,before: function(obj){
+          //预读本地文件示例，不支持ie8
+          $(".layui-upload-list").css({
+              "display":"block"
+          })
+          $("#test1").hide()
+          obj.preview(function(index, file, result){
+            $('#demo1').attr('src', result); //图片链接（base64）
+          });
+        }
+        ,done: function(res){
+          //如果上传失败
+          if(res.code > 0){
+            return layer.msg('上传失败');
+          }
+          //上传成功
+        }
+        ,error: function(){
+          //演示失败状态，并实现重传
+          var demoText = $('#demoText');
+          demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+          demoText.find('.demo-reload').on('click', function(){
+            uploadInst.upload();
+          });
+        }
+      });
+      
+     
+    });
+    </script>
+
+
+</html>

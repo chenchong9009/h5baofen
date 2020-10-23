@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改资料</title>
+    
+    <link rel="stylesheet" href="dist/css/layui.css" media="all">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link href="css/content.css" rel="stylesheet">
+    <script src="js/m_jx.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="dist/layui.js"></script>
+    <script src="js/swiper.min.js"></script>
+</head>
+
+<body style=" background:#f7f7f7">
+    <div class="font_Light padding1">
+        <div class="wode_top  marginB20">
+            <div  class="flex flex-align-center marginB20">
+                <div class="flex flex-1">
+                    <h4 class="font30 color_33 tit2">太阳花</h4>
+                </div>
+                <div class="flex flex-align-center">
+                    <h5 class="h5_touxiang3 "><image src="images/touxiang.png" class="w100" /></h5>
+                </div>
+            </div>
+            <div  class="flex flex-align-center margin30">
+                <div class="flex flex-1 flex-align-center ">
+                    <h4 class="font30 color_33 ">姓名</h4>
+                </div>
+                <div class="flex flex-3 flex-align-center">
+                   <input class="input1 input_info font30 color_33"  type="text" name="" id="" placeholder="" value="太阳花">
+                </div>
+            </div>
+            
+        </div>
+        <div class="wode_top  marginB20">
+            
+            <div  class="flex flex-align-center margin30">
+                <div class="flex flex-1 flex-align-center ">
+                    <h4 class="font30 color_33 ">手机号码</h4>
+                </div>
+                <div class="flex flex-3 flex-align-center">
+                    <input class="input1 input_info font30 color_33"  type="text" name="" id="" placeholder="" value="17330011572">
+                </div>
+            </div>
+            <div  class="flex flex-align-center marginB20">
+                <div class="flex flex-1">
+                    <h4 class="font30 color_33 tit2">个人微信二维码</h4>
+                </div>
+                <div class="flex flex-align-center">
+                    <div class="layui-upload">
+                        <button type="button" class="layui-btn2" id="test1">
+                            <img src="images/shangchuan.png" class="sc_img" >
+                        </button>
+                        <div class="layui-upload-list">
+                            <img class="layui-upload-img" id="demo1" >
+                            <p id="demoText"></p>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+            <div  class="flex flex-align-center margin30">
+                <div class="flex flex-1 flex-align-center ">
+                    <h4 class="font30 color_33 ">公司</h4>
+                </div>
+                <div class="flex flex-3 flex-align-center">
+                    <input class="input1 input_info font30 color_33"  type="text" name="" id="" placeholder="请输入公司" value="">
+                </div>
+            </div>
+            <div  class="flex flex-align-center margin30">
+                <div class="flex flex-1 flex-align-center ">
+                    <h4 class="font30 color_33 ">职位</h4>
+                </div>
+                <div class="flex flex-3 flex-align-center">
+                    <input class="input1 input_info font30 color_33"  type="text" name="" id="" placeholder="请输入职位" value="">
+                </div>
+            </div>
+            
+            
+        </div>
+
+        <div class="wode_top  marginB20">
+            <div  class="flex flex-v flex-pack-center margin30">
+                <div class="flex flex-1 flex-align-center marginB20">
+                    <h4 class="font32 color_33 ">个人简介</h4>
+                </div>
+                <div class="flex flex-1 flex-align-center">
+                    <textarea class="flex flex-1 texta1" name="" id="" cols="30" rows="10" placeholder="请输入你的个人简介"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="wode_top  marginB20">
+            <div  class="flex flex-align-center">
+                <div class="flex flex-1 flex-align-center ">
+                    <h4 class="font34 color_33 ">名片海报</h4>
+                </div>
+                <div class="flex flex-align-center">
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+            <h5 class="flex"><p class="font28 color_99">带有你社交电商/社群团购平台邀请码的图片</p></h5>
+             <div class="lunbo">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="images/imgbo1.png" class="w100" alt="第一张banner">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/imgbo1.png" class="w100" alt="第二张banner">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/imgbo1.png" class="w100" alt="第三张banner">
+                        </div>
+                    </div>
+                    <!-- 如果需要分页器 -->
+                    <div class="swiper-pagination"></div>
+                    <!-- 如果需要导航按钮 -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <!-- 如果需要滚动条 -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+             </div>
+
+             <div >
+                <a href="gg_lianjie_hb.html" class="bianjihb flex flex-align-center flex-pack-center">
+                    <h5 class="h5_bj_img">
+                        <image src="images/bianji.png" class="w100" />
+                    </h5>
+                    <p class="font30 color_h">编辑名片海报</p>
+                </a>
+             </div>
+        </div>
+
+
+        <div class="wode_top  marginB20">
+            <div  class="flex flex-align-center margin30">
+                <div class="flex flex-1 flex-align-center ">
+                    <h4 class="font30 color_33 ">文章顶部显示我的名片</h4>
+                </div>
+                <div class="flex flex-align-center">
+                    <label class="switch">
+                        <input type="checkbox" checked="checked">
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+            <div  class="flex flex-align-center margin30">
+                <div class="flex flex-1 flex-align-center ">
+                    <h4 class="font30 color_33 ">文章底部显示我的名片</h4>
+                </div>
+                <div class="flex flex-align-center">
+                    <label class="switch">
+                        <input type="checkbox" checked="checked">
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+            <div  class="flex flex-align-center margin30">
+                <div class="flex flex-1 flex-align-center ">
+                    <h4 class="font30 color_33 ">视频顶部显示我的名片</h4>
+                </div>
+                <div class="flex flex-align-center">
+                    <label class="switch">
+                        <input type="checkbox" checked="checked">
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+            <div  class="flex flex-align-center margin30">
+                <div class="flex flex-v flex-1 flex-pack-center ">
+                    <h4 class="font30 color_33 ">视频底部显示我的名片</h4>
+                    <p class="font28 color_99">关闭后,将不能展示广告位</p>
+                </div>
+                <div class="flex flex-align-center ">
+                    <label class="switch">
+                        <input type="checkbox"  checked="checked" >
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="xiugai">
+        <p>确认修改</p>
+    </div>
+
+   
+</body>
+<script>  
+
+   
+    var mySwiper = new Swiper ('.swiper-container', {
+        //direction: 'vertical', // 垂直切换选项
+        loop: true, // 循环模式选项
+        // 如果需要分页器
+        pagination: {
+           el: '.swiper-pagination',
+        },
+        // 如果需要前进后退按钮
+        navigation: {
+           nextEl: '.swiper-button-next',
+           prevEl: '.swiper-button-prev',
+        },
+        // 如果需要滚动条
+        //scrollbar: {
+        //   el: '.swiper-scrollbar',
+        //},
+    })        
+</script>
+<script>
+
+    
+        layui.use('upload', function(){
+          var $ = layui.jquery
+          ,upload = layui.upload;
+          
+          //普通图片上传
+          var uploadInst = upload.render({
+            elem: '#test1'
+            ,url: 'https://httpbin.org/post' //改成您自己的上传接口
+            ,before: function(obj){
+              //预读本地文件示例，不支持ie8
+              $(".layui-upload-list").css({
+                  "display":"block"
+              })
+              $("#test1").hide()
+              obj.preview(function(index, file, result){
+                $('#demo1').attr('src', result); //图片链接（base64）
+              });
+            }
+            ,done: function(res){
+              //如果上传失败
+              if(res.code > 0){
+                return layer.msg('上传失败');
+              }
+              //上传成功
+            }
+            ,error: function(){
+              //演示失败状态，并实现重传
+              var demoText = $('#demoText');
+              demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+              demoText.find('.demo-reload').on('click', function(){
+                uploadInst.upload();
+              });
+            }
+          });
+          
+         
+        });
+        </script>
+
+</html>

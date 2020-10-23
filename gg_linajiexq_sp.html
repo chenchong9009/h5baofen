@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>商品广告详情</title>
+
+  <link rel="stylesheet" href="dist/css/layui.css" media="all">
+  <link href="css/content.css" rel="stylesheet">
+  <link href="css/mobile-select.css" rel="stylesheet">
+  <script src="js/m_jx.js"></script>
+  <script src="js/jquery.min.js"></script>
+
+  <script src="dist/layui.js"></script>
+  <script src="js/mobile-select.js"></script>
+</head>
+
+<body style=" background:#f7f7f7">
+
+  <div class="gg_linkxq" class="font_Light">
+    <div class="gg_link_top flex">
+      <div class="flex flex-align-center">
+        <div class="layui-upload layui-upload-info">
+          <button type="button" class="layui-btn2 flex flex-v flex-pack-center flex-align-center" id="test1">
+            <img src="images/xc1.png" class="sc_img">
+          </button>
+          <div class="layui-upload-list01">
+            <img class="layui-upload-img" id="demo1">
+            <p id="demoText"></p>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-1 flex-v">
+        <div class="flex ffxq_tit marginB30">
+          <p class="font30 color_99 djggtit">填写商品名称</p>
+        </div>
+        <div class=" flex flex-pack-justify">
+          <div class="flex  ffxq_tit">
+            <p class="font30 color_33">￥<span class="color_99 djggjg">填写价格</span></p>
+          </div>
+          <div class="go_info">
+            去购买
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gg_link_center flex flex-v">
+      <div class="flex flex-pack-justify flex-align-center gg_link_b">
+        <h5 class="font30 color_33 "><span class="color_h">*</span> 点击广告后跳转到</h5>
+        <div class="flex flex-pack-end flex-1">
+          <p class="color_66 font28 flex flex-1 flex-pack-end" id="gg_btn_select">请选择</p>
+          <h5 class="h5_right_btn">
+            <image src="images/right_btn.png" class="w100" />
+          </h5>
+        </div>
+      </div>
+      <div class=" flex flex-v gg_link_goumai select1">
+        <div class="flex flex-pack-justify">
+          <h5 class="font30 color_33"><span class="color_h">*</span> 购买链接</h5>
+          <div class=" color_lan font30 lianjie flex flex-align-center">
+             <h5 class="wenhao"><image src="images/wenhao.png" class="w100" /></h5>
+             <p class="color_lan1">商品链接说明</p> 
+          </div>
+        </div>
+        <div class="flex ffxq_tit2">
+          <input class="gg_input flex flex-1" type="text" name="" placeholder="请填写商品的购买网址链接" id="">
+        </div>
+      </div>
+      <div class=" flex flex-v gg_link_goumai select2">
+          <h5 class="font30 color_33"><span class="color_h">*</span> 淘宝口令</h5>
+        <div class="flex ffxq_tit2">
+          <input class="gg_input flex flex-1" type="text" name="" placeholder="粘贴淘宝口令" id="">
+        </div>
+      </div>
+      <div class=" flex flex-v gg_link_goumai select3">
+          <h5 class="font30 color_33"><span class="color_h">*</span> 商品海报</h5>
+        <div class="flex ffxq_tit2">
+          <div class="flex flex-align-center">
+            <div class="layui-upload layui-upload-info">
+              <button type="button" class="layui-btn2 flex flex-v flex-pack-center flex-align-center" id="test2">
+                <img src="images/xc1.png" class="sc_img">
+              </button>
+              <div class="layui-upload-list02">
+                <img class="layui-upload-img" id="demo2">
+                <p id="demoText"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="submit2">
+      <p>保存</p>
+    </div>
+
+  </div>
+  <div class="tantit">
+    <div class="gg_linkxq" class="font_Light">
+      <div class="EditModel flex flex-v">
+        <div class="EditModel-title flex flex-pack-justify flex-align-center">
+          <p class="EditModel-title-p1 font30 color_66 quxiao">取消</p>
+          <h4 class="EditModel-title-p2 font34 color_33">广告标题</h4>
+          <p class="EditModel-title-p3 theme-btn">确定</p>
+        </div>
+        <div class="EditModel-content flex flex-align-center flex-pack-justify">
+          <input type="text" class="EditModel-input" class="flex " placeholder="最多20个字，好的广告标题点击率更高哦">
+        </div>
+        <div class="flex flex-pack-center font30 color_66 marginT20">
+          例：免费领取新人福利
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="tanprice">
+    <div class="gg_linkxq" class="font_Light">
+      <div class="EditModel flex flex-v">
+        <div class="EditModel-title flex flex-pack-justify flex-align-center">
+          <p class="EditModel-title-p1 font30 color_66 quxiao">取消</p>
+          <h4 class="EditModel-title-p2 font34 color_33">商品价格</h4>
+          <p class="EditModel-title-p3 theme-btn">确定</p>
+        </div>
+        <div class="EditModel-content flex flex-align-center">
+          <span>￥</span><input type="text" class="EditModel-input" class="flex " placeholder="填写商品价格">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="tan_lj"></div>
+  <div class="tan_lj_info flex flex-pack-center flex-align-center">
+    <h5 class="h5_gif">
+        <image src="images/goodsLiksTwo.gif" class="w100" />
+    </h5>
+  </div>
+</body>
+<script type="text/javascript">
+  $(".lianjie").click(function(){
+     $(".tan_lj").show()
+     $(".tan_lj_info").show()
+  })
+
+  $(".tan_lj").click(function(){
+    $(this).hide();
+    $(".tan_lj_info").hide()
+
+  })
+
+  $(".djggtit").click(function () {
+    $(".tantit").show()
+  })
+  // djggjg
+  $(".djggjg").click(function () {
+    $(".tanprice").show()
+  })
+
+  $(".quxiao").click(function () {
+    $(".tanprice").hide()
+    $(".tantit").hide()
+  })
+
+
+
+  var mobileSelect1 = new MobileSelect({
+    trigger: '#gg_btn_select',
+    title: '',
+    wheels: [{
+      data: ['购买链接', '淘bao口令', '商品海报']
+    }],
+    position:[1], //Initialize positioning
+    locatePostion:function(sliderIndex, posIndex){
+      mobileSelect1.locatePostion(1,0);
+    },
+    callback: function (indexArr, data) {
+      console.log(data.toString());
+      var dataInfo = data.toString()
+      if (dataInfo == '购买链接') {
+        $(".select1").show()
+        $(".select2").hide()
+        $(".select3").hide()
+
+      } else if (dataInfo == '淘bao口令') {
+
+        $(".select1").hide()
+        $(".select2").show()
+        $(".select3").hide()
+
+      } else if (dataInfo == '商品海报') {
+
+        $(".select1").hide()
+        $(".select2").hide()
+        $(".select3").show()
+
+      }
+
+    }
+  });
+</script>
+<script>
+  layui.use('upload', function () {
+    var $ = layui.jquery,
+      upload = layui.upload;
+
+    //普通图片上传
+    var uploadInst = upload.render({
+      elem: '#test1',
+      url: 'https://httpbin.org/post' //改成您自己的上传接口
+        ,
+      before: function (obj) {
+        //预读本地文件示例，不支持ie8
+        $(".layui-upload-list01").css({
+          "display": "block"
+        })
+        $("#test1").hide()
+        obj.preview(function (index, file, result) {
+          $('#demo1').attr('src', result); //图片链接（base64）
+        });
+      },
+      done: function (res) {
+        //如果上传失败
+        if (res.code > 0) {
+          return layer.msg('上传失败');
+        }
+        //上传成功
+      },
+      error: function () {
+        //演示失败状态，并实现重传
+        var demoText = $('#demoText');
+        demoText.html(
+          '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+        demoText.find('.demo-reload').on('click', function () {
+          uploadInst.upload();
+        });
+      }
+    });
+
+//普通图片上传
+var uploadInst = upload.render({
+      elem: '#test2',
+      url: 'https://httpbin.org/post' //改成您自己的上传接口
+        ,
+      before: function (obj) {
+        //预读本地文件示例，不支持ie8
+        $(".layui-upload-list02").css({
+          "display": "block"
+        })
+        
+        $("#test2").hide()
+        obj.preview(function (index, file, result) {
+          $('#demo2').attr('src', result); //图片链接（base64）
+        });
+      },
+      done: function (res) {
+        //如果上传失败
+        if (res.code > 0) {
+          return layer.msg('上传失败');
+        }
+        //上传成功
+      },
+      error: function () {
+        //演示失败状态，并实现重传
+        var demoText = $('#demoText');
+        demoText.html(
+          '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+        demoText.find('.demo-reload').on('click', function () {
+          uploadInst.upload();
+        });
+      }
+    });
+
+
+  });
+</script>
+
+
+</html>

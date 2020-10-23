@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>开通会员</title>
+    <link rel="stylesheet" href="dist/css/layui.css" media="all">
+    <link href="css/content.css" rel="stylesheet">
+
+    <script src="js/m_jx.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="dist/layui.js"></script>
+</head>
+
+<body style=" background:#f7f7f7">
+    <div class=" kt font30 color_66">
+        <div class="kt_top flex flex-v">
+            <h5 class="font30 color_33 kt_h5">VIP会员专享</h5>
+            <ul class="kt_top_ul flex flex-v">
+                <li>获客：实时查看精准访客，精准分享</li>
+                <li>能力：快速制作优质推广素材</li>
+                <li>收益：邀请注册开通奖金多多</li>
+                <li>服务：专属VIP导师1对1指导服务</li>
+                <li>福利：赠送高级导师营销视频课程</li>
+            </ul>
+        </div>
+
+        <div class="kt_center">
+            <div class="lt_c_list flex flex-align-center marginT20 pr">
+                <h5 class="ding_tuij pa">
+                    <image src="images/tui01.png" class="w100" />
+                </h5>
+                <div class="color_33 lt_c_list_left flex flex-v flex-1">
+                    <h4 class="font30 lt_h4_line">永久会员(送高级代理)</h4>
+                    <div class="marginT20 pr">
+                        <h5 class="font30 ">特惠价 <span class="font40 color_h">399 元</span> </h5>
+                        <span class="font24 color_h zhunshu">专属优惠码+翻倍佣金</span>
+                    </div>
+                </div>
+                <div class="flex flex-align-center lt_c_list_right kaitong01">
+                    <div class="lt_c_list_right_1 flex flex-v flex-align-center">
+                        <h5 class="h5_right_btn01">
+                            <image src="images/right_btn1.png" class="w100" />
+                        </h5>
+                        <p class="font28 color_h">立即开通</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="lt_c_list flex flex-align-center marginT20">
+                <div class="color_33 lt_c_list_left flex flex-v flex-1">
+                    <h4 class="font30 lt_h4_line">3年</h4>
+                    <div class="marginT20 pr">
+                        <h5 class="font30 ">特惠价 <span class="font40 color_h">199 元</span> </h5>
+                        <span class="font24 color_h zhunshu">专属优惠码+翻倍佣金</span>
+                    </div>
+                </div>
+                <div class="flex flex-align-center lt_c_list_right kaitong01">
+                    <div class="lt_c_list_right_1 flex flex-v flex-align-center">
+                        <h5 class="h5_right_btn01">
+                            <image src="images/right_btn1.png" class="w100" />
+                        </h5>
+                        <p class="font28 color_h">立即开通</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 3 -->
+            <div class="lt_c_list flex flex-align-center marginT20">
+                <div class="color_33 lt_c_list_left flex flex-v flex-1">
+                    <h4 class="font30 lt_h4_line">5年</h4>
+                    <div class="marginT20 pr">
+                        <h5 class="font30 ">特惠价 <span class="font40 color_h">299 元</span> </h5>
+                        <span class="font24 color_h zhunshu">原价768，现低至0.18元/天</span>
+                    </div>
+                </div>
+                <div class="flex flex-align-center lt_c_list_right kaitong01">
+                    <div class="lt_c_list_right_1 flex flex-v flex-align-center">
+                        <h5 class="h5_right_btn01">
+                            <image src="images/right_btn1.png" class="w100" />
+                        </h5>
+                        <p class="font28 color_h">立即开通</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-pack-end">
+            <div class="kefuma font24">
+                客服码
+            </div>
+        </div>
+        <div class="kt_bott_info">
+            <p>—— 会员服务开通后不支持退款 ——</p>
+        </div>
+    </div>
+
+    <div class="tanwei2 flex flex-align-center flex-pack-center">
+        <div class="zhuti2 zhuti21  flex flex-v flex-align-center pr">
+            <h4 class="font28 color_66 flex flex-pack-center marginT20 marginB20 width50">83.6%的小伙伴开通了会员获客效率平均提升3.84倍
+            </h4>
+            <h3 class="font28 color_h marginB20 w100 textA_center padding20 border_b border_t">为业绩花小钱，值</h3>
+            <div class="zhuti2_info flex flex-v flex-align-center">
+                <h5 class="liqu font24 color_66">残忍离去</h5>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    // -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.5);
+    $(window).on('scroll', function () {
+        $(".index_top").css({
+            'box-shadow': '0 3px 14px rgba(0,0,0,.3)'
+        })
+        if ($(this).scrollTop() == 0) {
+            $(".index_top").css({
+                'box-shadow': 'none'
+            })
+        }
+    })
+
+    $(document).ready(function () {
+
+        $(".kefuma").click(function () {
+            layui.use('layer', function () {
+                var $ = layui.jquery,
+                layer = layui.layer;
+                layer.open({
+                    title:'客户码',
+                    content: '<div class="layer_notice1"><input type="text" name="" id="" placeholder="请输入，没有可不填"></div>',
+                    btn: ['确认', '取消'],
+                    yes: function (index, layero) {
+                        //按钮【按钮一】的回调
+                        layer.close(index);
+
+                    },
+                    btn2: function (index, layero) {
+                        //按钮【按钮二】的回调
+                        layer.close(index);
+                        //return false 开启该代码可禁止点击该按钮关闭
+                    },
+                    cancel: function (index, layero) {
+                        //右上角关闭回调
+                        layer.close(index);
+                        //return false 开启该代码可禁止点击该按钮关闭
+                    }
+                });
+
+            });
+
+        })
+        $(".liqu").click(function () {
+            $(".tanwei2").hide()
+        })
+        $(".kaitong01").click(function () {
+            $(".tanwei2").show()
+        })
+    })
+</script>
+
+</html>
